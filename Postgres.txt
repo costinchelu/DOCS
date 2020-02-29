@@ -1,0 +1,22 @@
+POSTGRES - using SQL Shell
+
+enter path (in Windows 10): <<Environment Variables... -> New... >>>
+C:\Program Files\PostgreSQL\12\\bin
+
+start command line in bash = psql -U postgres
+
+or start a database already made = psql 'database_name'
+
+to create the database = CREATE DATABASE test;
+to connect to a database = \c test
+to create a table = CREATE TABLE users (name text, age smallint, birthday date);
+to list all databases = \l
+to list relations = \d
+                  = \d users
+to quit SQL Shell = \q
+to show where database is stored = show data_directory;
+to see all the run-time parameters = show all;
+to insert information in table = INSERT INTO users (name, age, birthday) VALUES ('Andrei', 31, '1985-01-25');
+to query = SELECT * FROM users;
+to add column = ALTER TABLE users ADD score smallint;
+to update a table = UPDATE users SET score = 10 WHERE name='Andrei';
