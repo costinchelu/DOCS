@@ -22,7 +22,9 @@ Files recorded as version snapshot.
 ### CONFIGURATIONS 
 
 `git config --global core.autocrlf true`
- = Configure Git on Windows to properly handle line endings
+ = Configure Git on Windows to properly handle line endings  
+`git config –list` = check out git configuration  
+`cat ~/.gitconfig` = to read the .gitconfig file  
 
 ### COMMANDS
 
@@ -37,25 +39,28 @@ Files recorded as version snapshot.
 `man git` = git manual  
 `git help <instruction>` = get help for a specific instruction  
 
-### CREATING A GITHUB REPOSITORY
+### .GITIGNORE
 
 Options for creating the repository:  
-`add.gitignore` = git will ignore all files with listed extensions that are in the repository (usually large files, or project configurations files). Extensions will be written in the .gitignore file.
-Adding a licence (licence files)
-Initialise repository with a readme.me file
+- `add.gitignore` = git will ignore all files with listed extensions that are in the repository (usually large files, or project configurations files). Extensions will be written in the .gitignore file.  
+- Adding a licence (licence files).  
+- Initialise repository with a readme.me file
 
-### INITIALISING A NEW REPOSITORY (ON LOCAL)
+### INITIALISING, ADDING, COMMITING (ON LOCAL)
 
 `git init` = a new repository is initialised in the current directory  
-`echo` *“#github_repo_name”* >> `README.md` = to add the README .me to the project  
+`echo` *“#github_repo_name”* >> `README.md` = to add the README to the project  
 `git clone <link>` = clone an online repository on a local drive.   
-Links from github can be pasted with shift+insert  
+Links from github can be pasted with shift+insert (in the linux command line)  
 `git add.` = add files to the staging area  
 `git add -A` = (A = all) add all files that had been modified or added to the repository (similar with `git add .` )  
 `git commit -m` “here description or/and name of the commit is written” = commits and posts a message for the commit  
 `git commit -a` = automatically commits changes to files tracked by git  
 `git commit --amend` = overwrites last commit with changes made now  
-`git revert <hash  of  a  previous  commit>` = revert changes to the commit selected (by hash)  
+`git revert <hash  of  a  previous  commit>` = revert changes to the commit selected (by hash)
+
+### REMOTES
+
 `git remote show origin` = shows info about connection of the local repository with a remote repository on another computer  
 `git remote add origin` *pasted_link_of_the_github_project* = adds the origin github repository to our local repository by creating a link that allows us to push or pull changes between the two  
 
@@ -73,7 +78,7 @@ There are two types of tags: lightweight, adnotated.
 `git tag -a` *“tag_name”* `-m` *“message”* = for creating an adnotated tag  
 `git show` *“tag_name”* = for viewing commit assigned with a tag  
 
-### LOGS
+### STATUS
 
 `git status` = shows the state of the project (
 M = modified,
@@ -86,6 +91,8 @@ When creating a new file we can add it to the tracked file by using the command 
 
 A file can be in two states in the same time. For example, we can modify it (in this case, the file becomes “not staged”) and after we add it to be staged, we can modify it again.
 
+### LOGS
+
 `git log` = list commits made until now (to limit displaying all commits we can use git log -5 (for example - in this case only the last 5 commits will be displayed).  
 For all, we can scroll screen up & down with J & K keys. To exit press q.
 
@@ -96,9 +103,6 @@ For all, we can scroll screen up & down with J & K keys. To exit press q.
 `git log --since “2 months”` = shows only commits made in the last 2 months. We can use also “*from*” & “*until*”.  
 `git log --graph` = shows commits in a graphical format (useful for branching)  
 `git diff` = shows differences in files that are not yet staged  
-`git config –list` = check out git configuration  
-
-`cat ~/.gitconfig` = to read the .gitconfig file  
 
 ### BRANCHES
 
