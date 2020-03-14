@@ -1,0 +1,52 @@
+alt + "arrow up or down"                - scroll to next or previous method or class
+alt + "arrow left or right"             - tab switching
+
+ctrl + "arrow left or right"            - move one word at a time
+ctrl + shift + "arrow left or right"    - select one word at a time
+
+ctrl + W                                - extend selection
+ctrl + shift + W                        - shrink selection
+
+ctrl + shift + "arrow up or down"       - move whole methods up or down (need to position on definition line)
+                                        - move whole loop (while, for) (need to position on first line of the loop)
+shift + alt + "arrow up or down"        - move line(s) up or down
+
+ctrl + D                                - duplicate line
+ctrl + Y                                - delete line
+ctrl + alt + L                          - format text
+
+ctrl + N                                - navigate to class
+
+ctrl + P                                - parameter information (in methods or constructors) (inside de () )
+ctrl + B                                - find declaration
+ctrl + E                                - find and select last files vizited or last options made
+
+alt + "arrow left or right"             - move to previous/next tab
+ctrl + /                                - comment/uncomment code
+ctrl + shift + /                        - block comment/uncomment code
+ctrl + -                                - collapse method (block)
+ctrl + +                                - expand method (block)
+
+ctrl + shift + I                        - quick definition (for methods, variables etc)
+ctrl + shift + A    or   shift, shift   - find classes, files, symbols and actions (find everywhere)
+hold ctrl (on variable & method)		- returned type
+ctrl + Q                                - quick method info
+ctrl + J                                - postfix completion suggestion list
+alt + enter                             - list of intentions
+ctrl + shift + F7                       - highlight usages in a file
+ctrl + shift + space                    - smart code completion
+                                          (press twice for static expressions, collections, lists, arrays)
+ctrl + space  (twice)                   - display static method suggestion list
+
+alt + enter                             - add a static import
+alt + insert                            - generate
+
+ctrl + F9                               - build app (review errors)
+    ctrl + alt + "arrow up or down"     - navigate to previous/next error
+    esc                                 - move the cursor to the editor
+	
+alt + enter                             - add language injection between ""
+crtl + F4                           	- close current fragment editor or current file
+
+ctrl + ctrl								- run anything
+shift + shift							- search anything
