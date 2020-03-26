@@ -103,17 +103,22 @@ For all, we can scroll screen up & down with J & K keys. To exit press q.
 `git log --since “2 months”` = shows only commits made in the last 2 months. We can use also “*from*” & “*until*”.  
 `git log --graph` = shows commits in a graphical format (useful for branching)  
 `git diff` = shows differences in files that are not yet staged  
+`git log --graph --decorate --oneline --all ^master^!` = shows branches from master  
+`git show-branch --all` = lists all branches
 
 ### BRANCHES
 
 `git checkout -b` *new_branch_name* = creates a new branch from current branch and moves the „head” pointer to the new branch (checkout).   
 That means - new commits will get on the new branch  
 `git checkout` *branch_name* = changes current branch  
+`git checkout -f` *branch_name* = changes current branch (forced mode)  
 `git branch` *new_branch_name* = when we only want to create the new branch (without checking out to it)  
 `git branch -d` *branch_name* = deletes branch specified by branch name  
 `git rebase` = gets all content and commits from a secondary branch, on top of the master commits.   
 This is useful when changes in the secondary branch are very important and we want to take the new route, leaving master behind and also on master new changes are not useful. After the rebase, we have to merge the new branch to master.  
-`git rebase master` = is made when we are in the secondary branch then `git merge` *new_branch*
+`git rebase master` = is made when we are in the secondary branch then `git merge` *new_branch*  
+`git branch -d` *branch_name* = deletes a branch  
+`git push <remote_name> -d <branch_name>` = delete a remote branch  
 
 ### FORKing
 
