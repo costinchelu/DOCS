@@ -192,7 +192,30 @@ To get just one, you could use `rebase -i` to squash them afterwards. Or, you co
 
 `git checkout 0d1d7fc32`
 
-Then commit. Be sure and write a good message describing what you just did `git commit`.  
+Then commit. Be sure and write a good message describing what you just did `git commit`. 
+
+**Resetting (Returning to an Old Revision)**
+
+`git reset --hard 0ad5a7a6` 
+
+This will rewind your HEAD branch to the specified version. All commits that came after this version are effectively undone; your project is exactly as it was at that point in time.
+
+The reset command comes with a couple of options, one of the more interesting ones being the `--soft` flag. If you use it instead of `--hard`, Git will keep all the changes in those *"undone"* commits as local modifications:  
+
+`git reset --soft 0ad5a7a6`  
+
+You'll be left with a couple of changes in your working copy and can then decide what to do with them.
+
+**Restoring a Revision in a New Local Branch**
+
+Using the reset command on your HEAD branch is a quite drastic action: it will remove any commits (on this branch) that came after the specified revision. If you're sure that this is what you want, everything is fine.
+
+However, there is also a "safer" way in case you'd prefer leaving your current HEAD branch untouched. Since "branches" are so cheap and easy in Git, we can easily create a new branch which starts at that old revision:  
+
+`git checkout -b <new branch name> 0ad5a7a6`  
+
+
+
 
 
 
