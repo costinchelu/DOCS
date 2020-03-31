@@ -57,6 +57,7 @@ Links from github can be pasted with shift+insert (in the linux command line)
 `git commit -m` “here description or/and name of the commit is written” = commits and posts a message for the commit  
 `git commit -a` = automatically commits changes to files tracked by git  
 `git commit --amend` = overwrites last commit with changes made now  
+`git commit --amend --no-edit` = overwrites last commit with changes made now without editing previous commit message  
 `git revert <hash  of  a  previous  commit>` = revert changes to the commit selected (by hash)
 
 ### REMOTES
