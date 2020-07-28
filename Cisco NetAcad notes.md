@@ -1,7 +1,10 @@
-﻿# Chapter 1 - Explore the Network
+﻿![network](NetAcad%20pictures/network.png)
+
+#
+# Chapter 1 - Explore the Network
 
 ![UTP cable](NetAcad%20pictures/utp%20cable.png)
-
+![Network Representations](NetAcad%20pictures/Network%20Representations.png)
 ![Intermediary Network Devices](netacad%20pictures/Intermediary%20Network%20Devices.png)
 
 **Network Media**
@@ -19,6 +22,8 @@ Network infrastructures can vary greatly in terms of:
 - Number and types of services available
 - Area of responsibility
 
+![Physical Topologies](netacad%20pictures/Physical%20Topologies.png)
+
 * **Local Area Network (LAN)** - A network infrastructure that provides access to users and end devices in a small geographical area, which is typically an enterprise, home, or small business network owned and managed by an individual or IT department.
 * **Wide Area Network (WAN)** - A network infrastructure that provides access to other networks over a wide geographical area, which is typically owned and managed by a telecommunications service provider.
 
@@ -28,7 +33,13 @@ Other types of networks include:
 - **Wireless LAN** **(WLAN)** - Similar to a LAN but wirelessly interconnects users and end points in a small geographical area.
 - **Storage Area Network (SAN)** - A network infrastructure designed to support file servers and provide data storage, retrieval, and replication.
 
+![Components of a Network](netacad%20pictures/Components%20of%20a%20Network.png)
+![Network Fault Tolerance](netacad%20pictures/Network%20Fault%20Tolerance.png)
+![Network Quality of Service](netacad%20pictures/Network%20Quality%20of%20Service.png)
+![Network Scalability](netacad%20pictures/Network%20Scalability.png)
+
 ### Security Threats =
+![Network Security](netacad%20pictures/Network%20Security.png)
 
 must take into account the environment, as well as the tools and requirements of the network. It must be able to secure data while still allowing for the quality of service that is expected of the network. Securing a network involves protocols, technologies, devices, tools, and techniques to secure data and mitigate threats. Threat vectors may be external or internal. The most common external threats to networks include:
 
@@ -41,6 +52,8 @@ must take into account the environment, as well as the tools and requirements of
 - _Identity theft_ - an attack to steal the login credentials of a user in order to access private data
 
 ![Physical Layer](netacad%20pictures/The%20Physical%20Layer.png)
+![Topology Diagrams - Logical](netacad%20pictures/Topology%20Diagrams%20-%20Logical.png)
+![Topology Diagrams - Physical](netacad%20pictures/Topology%20Diagrams%20-%20Physical.png)
 
 # Chapter 3 - Network Protocols and Communications
 
@@ -59,6 +72,13 @@ If a person asks a question and does not hear a response within an acceptable am
 - **IP** - is responsible for taking the formatted segments from TCP, encapsulating them into packets, assigning them the appropriate addresses, and delivering them to the destination host.
 - **Ethernet** - is a network access protocol that describes two primary functions: communication over a data link and the physical transmission of data on the network media. Network access protocols are responsible for taking the packets from IP and formatting them to be transmitted over the media.
 
+![Communicationg on a Local network](netacad%20pictures/Communicationg%20on%20a%20Local%20network.png)
+![Communicating With Devices on the Same Network](netacad%20pictures/Communicating%20With%20Devices%20on%20the%20Same%20Network.png)
+
+![Communicating to a Remote Network](netacad%20pictures/Communicating%20to%20a%20Remote%20Network.png)
+![Communicating With a Device on a Remote Network](netacad%20pictures/Communicating%20With%20a%20Device%20on%20a%20Remote%20Network.png)
+
+
 A protocol suite is a set of protocols that work together to provide comprehensive network communication services. A protocol suite may be specified by a standards organization or developed by a vendor.
 
 The TCP/IP protocol suite is an open standard, meaning these protocols are freely available to the public, and any vendor is able to implement these protocols on their hardware or in their software.
@@ -71,7 +91,11 @@ Some protocols are proprietary which means one company or vendor controls the de
 
 The protocols that make up the TCP/IP protocol suite can be described in terms of the OSI reference model. In the OSI model, the network access layer and the application layer of the TCP/IP model are further divided to describe discrete functions that must occur at these layers.
 
+![Layer Protocol](netacad%20pictures/Layer%20Protocol.png)
+
 At the network access layer, the TCP/IP protocol suite does not specify which protocols to use when transmitting over a physical medium; it only describes the hand off from the internet layer to the physical network protocols.
+
+![Network Protocols Layered Model](netacad%20pictures/Network%20Protocols%20Layered%20Model.png)
 
 _OSI Layers 1 and 2_ discuss the necessary procedures to access the media and the physical means to send data over a network.
 
@@ -84,6 +108,8 @@ The TCP/IP application layer includes a number of protocols that provide specifi
 _OSI model Layers 5, 6, and 7_ are used as references for application software developers and vendors to produce products that operate on networks.
 
 Both the TCP/IP and OSI models are commonly used when referring to protocols at various layers. Because the OSI model separates the data link layer from the physical layer, it is commonly used when referring to these lower layers.
+![Data Encapsulation in the Protocol Stack](netacad%20pictures/Data%20Encapsulation%20in%20the%20Protocol%20Stack.png)
+![Data Segmentation](netacad%20pictures/Data%20Segmentation.png)
 
 ## Network Addresses
 
@@ -148,6 +174,8 @@ The frame with the encapsulated IP packet can now be transmitted from PC1 direct
 
 As an example we have a client computer, PC1, communicating with a server, named Web Server, on a different IP network.
 
+![Network Addresses and Data Link Addresses](netacad%20pictures/Network%20Addresses%20and%20Data%20Link%20Addresses.png)
+
 **Role of the Network Layer Addresses**
 
 When the sender of the packet is on a different network from the receiver, the source and destination IP addresses will represent hosts on different networks. This will be indicated by the network portion of the IP address of the destination host.
@@ -210,9 +238,13 @@ The data link layer of the OSI model (Layer 2 is responsible for:
 
 The Layer 2 notation for network devices connected to a common media is called a node. Nodes build and forward frames. The OSI data link layer is responsible for the exchange of Ethernet frames between source and destination nodes over a physical network media.
 
+![Layer 2 Data Link Addresses](netacad%20pictures/Layer%202%20Data%20Link%20Addresses.png)
+
 The data link layer effectively separates the media transitions that occur as the packet is forwarded from the communication processes of the higher layers. The data link layer receives packets from and directs packets to an upper layer protocol, in this case IPv4 or IPv6. This upper layer protocol does not need to be aware of which media the communication will use.
 
 ## The Frame
+
+![Frame Fields](netacad%20pictures/Frame%20Fields.png)
 
 The data link layer prepares a packet for transport across the local media by encapsulating it with a header and a trailer to create a frame. The description of a frame is a key element of each data link layer protocol. Although there are many different data link layer protocols that describe data link layer frames, each frame type has three basic parts:
 
@@ -243,7 +275,10 @@ Data link layer protocols include:
 - HDLC
 - Frame Relay
 
+
 # Chapter 5 - Ethernet
+
+![Ethernet Encapsulation](netacad%20pictures/Ethernet%20Encapsulation.png)
 
 The minimum Ethernet frame size is 64 bytes and the maximum is 1518 bytes. This includes all bytes from the Destination MAC Address field through the Frame Check Sequence (FCS) field. The Preamble field is not included when describing the size of a frame.
 
@@ -252,6 +287,8 @@ Any frame less than 64 bytes in length is considered a “collision fragment” 
 If the size of a transmitted frame is less than the minimum or greater than the maximum, the receiving device drops the frame. Dropped frames are likely to be the result of collisions or other unwanted signals and are therefore considered invalid.
 
 In Ethernet, every network device is connected to the same, shared media. Ethernet was once predominantly a half-duplex topology using a multi-access bus or later Ethernet hubs. This meant that all nodes would receive every frame transmitted. To prevent the excessive overhead involved in the processing of every frame, MAC addresses were created to identify the actual source and destination. MAC addressing provides a method for device identification at the lower level of the OSI model. Although Ethernet has now transitioned to full-duplex NICs and switches, it is still possible that a device that is not the intended destination will receive an Ethernet frame.
+
+![Ethernet II Frame](netacad%20pictures/Ethernet%20II%20Frame.jpg)
 
 **MAC Address Structure**
 
@@ -294,6 +331,8 @@ The Layer 3 IP packet contains:
 
 - **Source IP address**
 - **Destination IP address**
+
+![Layer 3 Network Addresses](netacad%20pictures/Layer%203%20Network%20Addresses.png)
 
 ## Destination Remote Network
 
@@ -346,6 +385,8 @@ There are several network layer protocols in existence. However, as shown in the
 
 IP encapsulates the transport layer segment or other data by adding an IP header. This header is used to deliver the packet to the destination host. _The IP header remains the same from the time the packet leaves the source host until it arrives at the destination host._
 
+![Characteristics of the IP Protocol](netacad%20pictures/Characteristics%20of%20the%20IP%20Protocol.png)
+
 The process of encapsulating data layer by layer enables the services at the different layers to develop and scale without affecting the other layers. This means the transport layer segments can be readily packaged by IPv4 or IPv6 or by any new protocol that might be developed in the future.
 
 Routers can implement these different network layer protocols to operate concurrently over a network. The routing performed by these intermediate devices only considers the contents of the network layer packet header. In all cases, the data portion of the packet, that is, the encapsulated transport layer PDU, remains unchanged during the network layer processes.
@@ -377,6 +418,8 @@ The Internet Header Length (IHL), Total Length, and Header Checksum fields are u
 Other fields are used to reorder a fragmented packet. Specifically, the IPv4 packet uses Identification, Flags, and Fragment Offset fields to keep track of the fragments. A router may have to fragment a packet when forwarding it from one medium to another with a smaller MTU.
 
 ## IPv6 Packet Header
+
+![IPv6 Packet Header](netacad%20pictures/IPv6%20Packet%20Header.png)
 
 The fields in the IPv6 packet header include:
 
@@ -433,6 +476,8 @@ A host can obtain IPv4 addressing information automatically. The host is a DHCP 
 DHCP is generally the preferred method of assigning IPv4 addresses to hosts on large networks. An additional benefit of DHCP is the address is not permanently assigned to a host but is only "leased" for a period of time. If the host is powered down or taken off the network, the address is returned to the pool for reuse. This feature is especially helpful for mobile users that come and go on a network.
 
 ## Public and Private IPv4 Addresses
+
+![IPv4 Packet Header](netacad%20pictures/IPv4%20Packet%20Header.png)
 
 Public IPv4 addresses are addresses which are globally routed between ISP (Internet Service Provider) routers. However, not all available IPv4 addresses can be used on the Internet. There are blocks of addresses called _private addresses_ that are used by most organizations to assign IPv4 addresses to internal hosts.
 
@@ -520,7 +565,10 @@ We need to subtract 2 bits and we get 2^2^ subnets. There are 8-2 = 6 bits remai
 - 192.168.1.65 (Network 1 First Host)
 - 192.168.1.126 (Network 1 Last Host)
 - 192.168.1.64 (Network 1 Broadcast)
-- ..............
+
+![Subnet Mask Prefix Length](netacad%20pictures/Subnet%20Mask%20Prefix%20Length.png)
+![Subnetting - Dotted Decimal Addresses](netacad%20pictures/Subnetting%20-%20Dotted%20Decimal%20Addresses.png)
+![Subnetting Networks on the Octet Boundary](netacad%20pictures/Subnetting%20Networks%20on%20the%20Octet%20Boundary.png)
 
 ## Variable Length Subnet Masks
 
@@ -533,6 +581,9 @@ The difference is that subnetting is not a single pass activity. With VLSM, the 
 **Note**: _When using VLSM, always begin by satisfying the host requirements of the largest subnet. Continue subnetting until the host requirements of the smallest subnet are satisfied._
 
 # Chapter 9 - Transport Layer
+
+![Transport Layer Services](netacad%20pictures/Transport%20Layer%20Services.png)
+![Transport Layer Protocols](netacad%20pictures/Transport%20Layer%20Protocols.png)
 
 **Tracking Individual Conversations**
 At the transport layer, each set of data flowing between a source application and a destination application is known as a conversation. A host may have multiple applications that are communicating across the network simultaneously. Each of these applications communicates with one or more applications on one or more remote hosts. It is the responsibility of the transport layer to maintain and track these multiple conversations.
@@ -553,6 +604,9 @@ The transport layer is also responsible for managing reliability requirements of
 
 **TCP** is considered a reliable, full-featured transport layer protocol, which ensures that all of the data arrives at the destination. However, this requires additional fields in the TCP header which increases the size of the packet and also increases delay. In contrast, UDP is a simpler transport layer protocol that does not provide for reliability. It therefore has fewer fields and is faster than TCP.
 
+![TCP Connection Establishment](netacad%20pictures/TCP%20Connection%20Establishment.png)
+![TCP Session Termination](netacad%20pictures/TCP%20Session%20Termination.png)
+
 With TCP, there are three basic operations of reliability:
 
 - Numbering and tracking data segments transmitted to a specific host from a specific application
@@ -561,12 +615,18 @@ With TCP, there are three basic operations of reliability:
 
 **UDP** provides the basic functions for delivering data segments between the appropriate applications, with very little overhead and data checking. UDP is known as a best-effort delivery protocol. In the context of networking, best-effort delivery is referred to as unreliable because there is no acknowledgment that the data is received at the destination. With UDP, there are no transport layer processes that inform the sender of a successful delivery.
 
+![UDP - Applications that use UDP](netacad%20pictures/UDP%20-%20Applications%20that%20use%20UDP.png)
+![UDP Datagram](netacad%20pictures/UDP%20Datagram.png)
+
+
 **TCP features:**
 
 - **Establishing a Session**
 - **Reliable Delivery**
 - **Same-Order Delivery**
 - **Flow Control**
+
+![TCP segment](netacad%20pictures/TCP%20segment.png)
 
 TCP is a stateful protocol. A stateful protocol is a protocol that keeps track of the state of the communication session. To track the state of a session, TCP records which information it has sent and which information has been acknowledged. The stateful session begins with the session establishment and ends when closed with the session termination.
 
@@ -597,6 +657,8 @@ TCP segment has 20 bytes of overhead in the header encapsulating the application
 
 ## Port Numbers
 
+![Port Addressing](netacad%20pictures/Port%20Addressing.png)
+
 The Internet Assigned Numbers Authority (IANA) is the standards body responsible for assigning various addressing standards, including port numbers. There are different types of port numbers:
 
 - **Well-known Ports (Numbers 0 to 1023)** - These numbers are reserved for services and applications. They are commonly used for applications such as web browsers, email clients, and remote access clients. By defining these well-known ports for server applications, client applications can be programmed to request a connection to that specific port and its associated service.
@@ -605,15 +667,21 @@ The Internet Assigned Numbers Authority (IANA) is the standards body responsible
 
 - **Dynamic or Private Ports (Numbers 49152 to 65535)** - Also known as ephemeral ports, these are usually assigned dynamically by the client’s OS when a connection to a service is initiated. The dynamic port is then used to identify the client application during communication.
 
+![Socket Pairs](netacad%20pictures/Socket%20Pairs.png)
+
 # Chapter 10 - Application Layer
 
 ![Application Layer](netacad%20pictures/Application%20Layer.png)
 
 ## TCP/IP Application Layer Protocols
 
+![TCPIP Protocol Suite](netacad%20pictures/TCPIP%20Protocol%20Suite.png)
+
 **_DNS_** = TCP / UDP 53 = **Domain Name System** = Translates domain names int IP addresses
 
 **_DHCP_** = UDP client 68, server 67 = **Dynamic Host Configuration Protocol** = Dynamically assigns IP addresses to client stations at start-up.
+
+![DHCP](netacad%20pictures/DHCP.png)
 
 **_SMTP_** = TCP 25 = **Simple Mail Transfer Protocol** = Enables clients to send email to mail server. Enables servers to send email to other servers.
 
@@ -621,15 +689,29 @@ The Internet Assigned Numbers Authority (IANA) is the standards body responsible
 
 **_IMAP_** = TCP 143 = **Internet Message Access Protocol** = Enables clients to access email stored on a mail server. Maintains email on the server.
 
+![Application Layer](netacad%20pictures/Presentation%20and%20Session%20Layer.png)
+![Email protocols](netacad%20pictures/Email%20Protocols.png)
+
 **_FTP_** = TCP 20 - 21 = **File Transfer Protocol** = Sets rules that enable a user on one host to access and transfer files to and from another host over a network. Connection oriented, reliable, acknowledged.
 
 **_TFTP_** = UDP 69 = **Trivial File Transfer Protocol** = Simple connection-less FTP, best effort, unacknowledged.
 
 **_HTTP_** = TCP 80, 8080 = **Hypertext Transfer Protocol** = Sets rules for exchanging text, graphic, images, sound, video and other multimedia files on the World Wide Web.
 
+![TCP - Applications that use TCP](netacad%20pictures/TCP%20-%20Applications%20that%20use%20TCP.png)
+
 **_HTTPS_** = **Hypertext Transfer Protocol Secure** = TCP, UDP 443 = Uses encryption to secure HTTP connections. Authenticates the website to which you are connecting your browser.
 
 ![Application to Transport Layer](netacad%20pictures/Application%20Layer%20Protocol%20that%20Uses%20Particular%20Transport%20Layer%20Protocols.png)
+
+
+## Presentation & Session Layer
+
+![Presentation & Session Layer](netacad%20pictures/Presentation%20and%20Session%20Layer.png)
+
+![Interaction of Communication Protocols](netacad%20pictures/Interaction%20of%20Communication%20Protocols.png)
+
+![Protocol Suites and Industry Standards](netacad%20pictures/Protocol%20Suites%20and%20Industry%20Standards.png)
 
 ### Client-Server Model
 

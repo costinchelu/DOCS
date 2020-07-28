@@ -1,12 +1,4 @@
-# ACID
-
-### ATOMICITY, CONSITENCY, ISOLATION, DURABILITY
-
-- serii de proprietăți ale tranzacțiilor efectuate în bazele de date ce trebuie să garanteze validitatea operațiilor chiar și în cazul unor erori, probleme de alimentare cu energie electrică etc.
-- un exemplu important este cazul transferului financiar dintr-un cont în altul care implică mai multe operații și schimbări cum ar fi debitarea unui cont și creditarea altuia - în acest caz are loc o singură tranzacție (totul sau nimic)
-
-
-# AJAX
+﻿# AJAX
 
 ### ASYNCHRONOUS JAVASCRIPT AND XML
 
@@ -17,7 +9,7 @@
 
 ### APPLICATION PROGRAMMING INTERFACE
 
-- cod scris de un furnizor de servicii care poate fi folosit dpentru o integrare standardizată a serviciilor respective
+- cod scris de un furnizor de servicii care poate fi folosit pentru o integrare standardizată a serviciilor respective
 
 # CDN
 
@@ -174,6 +166,12 @@
 
 - metode de administrarea a istoricului documentelor în procesul de producție
 - este de ajutor în rezolvarea conflictelor dintre diferite îmbinări ale unei echipe de contribuitori la proiect
+
+# SEO
+
+### SEARCH ENGINE OPTIMISATION
+
+- optimizarea site-ului pentru motoare de căutare care are drept scop mărirea traficului calitativ al unui site
 
 # TLD
 
