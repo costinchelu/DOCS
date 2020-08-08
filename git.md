@@ -55,6 +55,7 @@ Files recorded as version snapshot.
 `clear` = clear screen  
 `man git` = git manual  
 `git help <instruction>` = get help for a specific instruction    
+
 ### OPTIONS FOR REPO
 
 Options for creating the repository:  
@@ -152,8 +153,14 @@ For all, we can scroll screen up & down with J & K keys. To exit press q.
 
 `git rebase` = gets all content and commits from a secondary branch, on top of the master commits.   
 This is useful when changes in the secondary branch are very important and we want to take the new route, leaving master behind and also on master new changes are not useful. After the rebase, we have to merge the new branch to master.  
-`git rebase master` = is made when we are in the secondary branch 
-`git rebase -i HEAD~3` = git rebase interactive (it opens up a table of options for the last 3 commits)
+`git rebase master` = is made when we are in the secondary branch  
+`git rebase -i HEAD~3` = git rebase interactive (it opens up a table of options for the last 3 commits)  
+
+### Rebase vs merge
+![Rebase vs Merge](images/git/rebase_vs_merge.png)
+- When you do rebase a feature branch onto master, you move the base of the feature branch to master branch’s ending point.
+- Merging takes the contents of the feature branch and integrates it with the master branch. As a result, only the master branch is changed. The feature branch history remains same.
+- Merging adds a new commit to your history.
 
 ### FORKing
 

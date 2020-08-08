@@ -291,7 +291,7 @@ subarrays and then:
 3.  Merge the solutions
 
 ![Merge Sort
-Illustration](Files/sorting-algorithms-in-java-1.png)
+Illustration](images/Sorting%20Algorithms%20in%20Java/sorting-algorithms-in-java-1.png)
 
 This tree is meant to represent how the recursive calls work. The arrays
 marked with the down arrow are the ones we call the function for, while
@@ -471,7 +471,7 @@ In other words, as you move down the tree, you get to smaller and
 smaller numbers (min-heap) or greater and greater numbers (max-heap).
 Here's an example of a max-heap:
 
-![Max Heap](Files/sorting-algorithms-in-java-2.png)
+![Max Heap](images/Sorting%20Algorithms%20in%20Java/sorting-algorithms-in-java-2.png)
 
 We can represent this max-heap in memory as an array in the following
 way:

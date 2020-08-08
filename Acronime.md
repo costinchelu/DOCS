@@ -144,6 +144,13 @@
 - bazată pe obiecte (încapsulate) care conțin atribute și metode
 - cele patru principii de bază a programării orientate pe obiect sunt: - ABSTRACTIZARE - ÎNCAPSULARE - MOȘTENIRE - POLIMORFISM
 
+# ORM
+
+### OBJECT RELATIONAL MAPPING
+
+- tehnică de programare ce face posibilă accesarea și manipularea obiectelor fără ca programatorii să fie interesați de sursa de date de unde provin aceste obiecte
+- a apărut din nevoia de a depăși diferențele de paradigmă dintre modelul orientat pe obiecte (susținut de limbajele de programare de nivel înalt actuale) și modelul relațional (utilizat de cele mai populare sisteme de gestiune a bazelor de date)
+
 # REGEX
 
 ### REGULAR EXPRESSIONS
@@ -157,6 +164,13 @@
 
 - set de ghiduri de design a arhitecturii software folosite pentru transmisia de date dintre client și server
 - comunicarea se face prin HTTP
+
+# SaaS
+
+### Software as a Service
+
+- model de furnizare a software-ului bazat pe cloud, în care furnizorul de servicii cloud dezvoltă și întreține software-ul pentru aplicații cloud, oferă actualizări de software automate și pune software-ul la dispoziția clienților săi prin intermediul internetului, cu plata în funcție de utilizare
+- Furnizorul serviciilor cloud gestionează toate componentele hardware, middleware, software-ul pentru aplicațiile și securitatea
 
 # SCM (VCM)
 
@@ -173,6 +187,12 @@
 
 - optimizarea site-ului pentru motoare de căutare care are drept scop mărirea traficului calitativ al unui site
 
+# SPA
+
+### SINGLE PAGE APPLICATION
+
+- aplicație cu care se lucrează prin intermediul unui browser și care nu necesită reîncărcarea întregii pagini în timpul utilizării (Gmail, Google Maps, Facebook)
+
 # TLD
 
 ### TOP LEVEL DOMAIN
@@ -181,9 +201,7 @@
 
 # URI / URL
 
-### UNIFORM RESOURCE LOCATOR
-
-### UNIFORM RESOURCE IDENTIFIER
+### UNIFORM RESOURCE LOCATOR / UNIFORM RESOURCE IDENTIFIER
 
 - adrese uniforme pentru localizarea unor resurse (URL - adrese internet) (URI - locațiile unor resurse interne în funcție de context)
 
