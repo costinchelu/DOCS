@@ -1,0 +1,128 @@
+<html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>031 Jenkins Installation</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><h4>Installing Jenkins</h4>
+
+<p>The simplest way to install jenkins is by downloading and installing jenkins as a war file.</p>
+
+<p>Go to <a href="https://jenkins.io/download/" rel="nofollow">https://jenkins.io/download/</a> and choose Generic Java package.</p>
+
+<p>This will download file called jenkins.war. This is a Java web application that runs jenkins within an embedded web server.</p>
+
+<p>To run jenkins, got to the command line and type:</p>
+
+<p># java -jar jenkins.war</p>
+
+<p>This will run jenkins on port 8080.</p>
+
+<p>You can then access the jenkins console on <a href="http://localhost:8080" rel="nofollow">http://localhost:8080</a>. If you want to run jenkins on a different port, you can specify the port on the command line :</p>
+
+<p>#java -jar jenkins.war --httpPort=&lt;port&gt;</p>
+
+
+
+<p>To work with jenkins for this course, we need to have Java, maven and git client installed.</p>
+
+
+
+<p>Jenkins Configuration</p>
+
+
+
+<p>When you start jenkins a generate admin password is displayed on the console</p>
+
+<p><img height="372" src="https://lh6.googleusercontent.com/4cz7Kmni-Bz_pJUf4p85WMRbbOWOkOGeXOLe_7J_5jFBGOvmpp9QjYO0qbuYsdXPsVKmkHf-1VThmd6T3lWfLLz1jrEixxzK2f4pRgO5rJ98UL6pjq5aRd0wvZ4F5-bNSJ0VpGMG" width="624"></p>
+
+
+
+
+
+<p>Start the Jenkins console at http://localhost:&lt;port&gt;</p>
+
+<p><img height="292" src="https://lh6.googleusercontent.com/bR-U1Lo0I7Ce4rsJ5PzovqEq1LQ4Q_2V-1ZH-4Ng2E7LZGiuk3CebRQgP2le3pqcPzUyoSXoSqLoCJJmEiuBof_a22wXwEOPRJlqmlRdV-8F00CJEaGDNmN0ZRJULl3Uz-kyc-Nk" width="624"></p>
+
+
+
+<p>Enter the password generate on the console.</p>
+
+
+
+<p>Next Jenkins displays the following screen:</p>
+
+
+
+<p><img height="292" src="https://lh6.googleusercontent.com/7R5Pli_9mgPUqDxucbENDZr2ubyiZhAwXv3Uz2Ac9K48qirskSR3sUKT08tGz8xzRy0qI_9cy4rQnEihgugm2vViRou54RMwvFKD_MetcHTxVk9fsecqFlgR8rdtO-M3sMboRO_y" width="624"></p>
+
+
+
+<p>Choose install suggested plugins</p>
+
+
+
+<p>Next choose the admin user and password.</p>
+
+<p><img height="292" src="https://lh6.googleusercontent.com/iuC7QJMcwfIGlq-FXoajqQtsBSEKY6mn5glG_uH9qaxwYx5myr54ZYqOs4Zv_nMoLH2iEdC2vdZCUN1CVzNQyJpWOK_JCydljDMZ-upZKOv7IPg8B2_phtxQl_YDuktP51keKNYJ" width="624"></p>
+
+<p>Next we need to install the maven plugin</p>
+
+<p>Choose ‘manage Jenkins’ ‘manage plugins’</p>
+
+<p>Click the available plugins tab and search for maven:</p>
+
+
+
+<p><img height="292" src="https://lh4.googleusercontent.com/-oONnLsi_Oh958P5Z2XWLu1eBjU_TpKd9pQXhHI2IB6q3bnRsGdj_HHBLVeUgIQIndFNWe3H8Os7HnsM1otV8_vBCJffUBZYlqnzV7jQynMNw0-666bldq09doPcRidTW1WXOKo7" width="624"></p>
+
+
+
+<p>Choose the maven integration plugin and choose install without restart</p>
+
+<p><img height="292" src="https://lh3.googleusercontent.com/kvc61QZ-vCt08N47KNFZwOyzaZ2E2tcKl9jwhSSbEGzLOtULgz18-UORZIQD0AQujstMvq4L4ukPO3GMfzZHtx0lb2X2LXQ6YAZLpzf688RI-HwKUknEtgc1jTRpwmaUWT7xMaBl" width="624"></p>
+
+
+
+
+
+<p>Choose manage Jenkins -&gt; Global tool configuration </p>
+
+
+
+<p><img height="292" src="https://lh3.googleusercontent.com/r5Asoqg7t6N8u412YMxX5j4Fs3MYnK7MswsZpdzSLemfU-R_rVqOvhkQH3DWENuJLlUj8S_ayFdWxCnlZU3cqgDUss-PWq3SdWUCEZDfUFZ3co-8uuhgVNymeA5697rDWCsYcJFL" width="624"></p>
+
+<p>In the JDK section add your JDK home and JDK name</p>
+
+
+
+<p>Make sure your git section points to the correct location of your git executable:</p>
+
+<p><img height="292" src="https://lh3.googleusercontent.com/6Y2RAVizOInizIpNyeOOzG92JXDsvavaR7zBFwBA8KBuVluWLqf7Lfo0HaK48fe7W6XcKqhqj_YiMNf5ov9VxLMkszayPrau9jw2UWdE5BW9GSbS337fG3owWucTG5tNjmAf9dV2" width="624"></p>
+
+
+
+<p>By default, the git executable should be in the PATH, so that should be OK.</p>
+
+
+
+<p>On the Maven section choose add Maven:</p>
+
+<p><img height="292" src="https://lh5.googleusercontent.com/HK_nxNcnCfdm6TgWGj68Kx6eGp4Ldx_m6nSg5exIpUGyXr0Nmuna2pgUntfQ5PPseqwBOpVlBWHhLbHoyVMZG8llQb0lIUv734kCM6m-Ads0fIMVNqi3DqzvDHbHsdZubEbppiDE" width="624"></p>
+
+<p>Enter your maven home location and give your maven installation a name.</p>
+
+
+
+<p>This should complete your Jenkins setup.</p>
+
+<p>We can now work with git and maven in our Jenkins build server.</p></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>

@@ -142,7 +142,11 @@
 
 - paradigmă modernă de programare
 - bazată pe obiecte (încapsulate) care conțin atribute și metode
-- cele patru principii de bază a programării orientate pe obiect sunt: - ABSTRACTIZARE - ÎNCAPSULARE - MOȘTENIRE - POLIMORFISM
+- cele patru principii de bază a programării orientate pe obiect sunt: 
+   - ABSTRACTIZARE 
+   - ÎNCAPSULARE 
+   - MOȘTENIRE 
+   - POLIMORFISM
 
 # ORM
 
@@ -150,6 +154,12 @@
 
 - tehnică de programare ce face posibilă accesarea și manipularea obiectelor fără ca programatorii să fie interesați de sursa de date de unde provin aceste obiecte
 - a apărut din nevoia de a depăși diferențele de paradigmă dintre modelul orientat pe obiecte (susținut de limbajele de programare de nivel înalt actuale) și modelul relațional (utilizat de cele mai populare sisteme de gestiune a bazelor de date)
+
+# PaaS
+
+### PLATFORM AS A SERVICE
+
+- servicii de tip cloud computing constând într-o platformă ce permite clienților să dezvolte, ruleze și să gestioneze aplicații fără a fi nevoiți să construiască și să întrețină o infrastructură necesară
 
 # REGEX
 
@@ -174,9 +184,7 @@
 
 # SCM (VCM)
 
-### SOURCE CONTROL MANAGEMENT
-
-### VERSION CONTROL MANAGEMENT
+### SOURCE CONTROL MANAGEMENT (VERSION CONTROL MANAGEMENT)
 
 - metode de administrarea a istoricului documentelor în procesul de producție
 - este de ajutor în rezolvarea conflictelor dintre diferite îmbinări ale unei echipe de contribuitori la proiect
@@ -186,6 +194,13 @@
 ### SEARCH ENGINE OPTIMISATION
 
 - optimizarea site-ului pentru motoare de căutare care are drept scop mărirea traficului calitativ al unui site
+
+# SOAP
+
+### SIMPLE OBJECT ACCESS PROTOCOL
+
+- protocol de comunicații la nivel de aplicație independent de platformă și bazat pe XML
+- un format standard pentru primirea și trimiterea de mesaje
 
 # SPA
 

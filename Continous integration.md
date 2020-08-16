@@ -172,3 +172,199 @@ Everybody performs a clone on a centralized repository and work on the master br
 Everybody performs a clone on a centralized repository and create a branch for every feature they need to develop. Once someone completes a feature they don't immediately merge it into master. Instead the push the branch and file a pull request asking to merge their additions into master
 - **FORKING WORKFLOW**  
 Developers fork the central repository (instead of cloning it). Also they have a server-side repository. After pushing their work on their server side repository, the project maintainer can push to the official repository. Only the maintainer have write access to the official codebase.
+
+
+## BUILD TOOL - MAVEN
+
+- mostly used for Java
+- based on a standard project structure
+- dependency management (able to resolve 3rd party dependencies, also download them from a repository)
+- based on plugins (it has a core + plugins)
+
+![Maven Architecture](images/Continous%20Integration/Maven_architecture.png)
+
+- creates a locat repository for dependencies and copies those dependencies form Maven Central (repo) or other remote locations
+ - Maven will ask for an archetype (project type), a group and artifact name and a version for the project
+ - Maven project structure:  
+     * *src/main/java* = sources
+     * *src/main/resources* = resources (images, other files etc)
+     * *src/test/java* = unit tests
+     * *src/test/resources* = resources used for tests
+     * *pom.xml* = project's configuration file
+
+### Command line Maven
+using a console (prompt) we can generarate a Maven project:
+```apache
+mvn archetype:generate
+```
+we can compile our project using:
+```apache
+mvn compile
+```
+to compile and run our unit tests:
+```apache
+mvn test
+```
+to build our jar (package):
+```apache
+mvn package
+```
+to take the package and install it into our local Maven repository:
+```apache
+mvn install
+```
+to clean up the artifact and classes for the project:
+```apache
+mvn clean
+```
+
+### IDE Maven
+To use Maven in IntelliJ or Eclipse we can create a new project marked as Maven project. When we need a new dependency included in  the project we can search for it in the Maven Central Repository and paste the dependency snippet inside our pom.xml file in the *dependencies* tag. 
+
+In IntelliJ, if we get the error: *java: error: release version 5 not supported* we need to **change language level** from project -> module also we need to get to Settings >> Build, Execution, Deployment >> Compiler >> Java Compiler and **change target bytecode version** to 11 (or other newer Java SDK version).
+Or insert into pom.xml:
+```xml
+<properties>
+       <java.version>11.0.8</java.version>
+       <maven.compiler.version>3.8.1</maven.compiler.version>
+       <maven.compiler.source>11.0.8</maven.compiler.source>
+       <maven.compiler.target>11.0.8</maven.compiler.target>
+   </properties>
+
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <version>${maven.compiler.version}</version>
+               <configuration>
+                   <source>${java.version}</source>
+                   <target>${java.version}</target>
+               </configuration>
+           </plugin>
+       </plugins>
+   </build>
+```
+
+
+### Example pom.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>Maven_test_2</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>MavenTest2</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+### Default lifecycle phases
+**Validate**  
+**Compile**  
+**Test**  
+**Package**  
+**Verify**  
+**Install**  
+**Deploy**  
+
+- Maven has a multi-modal capability
+
+# DOCKER
+
+Docker is a container technology that is used to deploy applications. With regard to continuous integration we can use docker in the deploy and production phases of our pipeline to bootstrap a container(or a set of containers ) with our application.
+
+The alternatives to using docker in the pipeline is to use deployment tools like Chef, Puppet or Ansible.
+
+The docker concept is different, where as with the other tools we are configuring a running VM with our latest version of the software , with docker we are always creating a new docker image containing the latest version of our software and running a container based on that image.
+
+### Docker Components
+
+**Docker daemon** - or the docker engine, responsible for running and managing containers.
+
+**Docker client** - issues commands to the docker daemon.
+
+**Docker registry** - used to store docker images. We can use the DockerHub, or setup our own local docker image repository.
+
+**Docker image** - contains the software components that we need to be available to the container. The equivalent of a VM image, only much more lightweight and easy to create. We can automate the creation of docker images using a Dockerfile.
+
+**Docker container** - the actual container that is run based on a docker image.
+
+### Docker Usages
+
+There are several scenarios for which we might use docker as developers or operators.
+
+To bootstrap a container in our build pipeline for automation tests, like we are doing in our course. In that case we might be distributing software to be installed on-premise to our customers and are using docker only for our CI pipeline.
+
+We are a ISV and we are creating docker images for our software and providing those images to our customers, so that they can run our software with docker containers.
+
+We are a SAAS company or an IT organization that is using docker for both development and production and installing various software landscapes with docker. In that case we need a docker orchestration tool like Kubernetes or Swarm in order to scale our docker containers among various VMs. We will also need to monitor and manage many instances, this will usually require using a special docker orchestration suite or a PAAS (Plasform as a service) software.
+
+### PAAS Products using Docker
+
+**Redhat Openshift** - https://www.openshift.com/
+
+**IBM BlueMix** - https://www.ibm.com/cloud-computing/bluemix/
+
+**Docker Datacenter** - https://success.docker.com/Datacenter
+
+(Container as a service)
+
+### Docker Orchestration
+
+**Docker Swarm** - https://docs.docker.com/engine/swarm/
+
+**Kubernetes** - https://kubernetes.io/
+
+# SELENIUM
+- help us run automation tests
+- open source - Apache licence
+- set of different software tools supporting test automation
+- Selenium web driver (core tool)
+- Selenium IDE - records automation scripts
+
+# PROJECT RESPONSABILITIES
+
+- Development
+- Integration tests
+- Automation tests
+- Infrastructure provisioning
+- Deployment
+- Security
+- Logging
+- Monitoring
+- Troubleshooting
+
+![What is devops?](images/Continous%20Integration/Devops_culture.png)
