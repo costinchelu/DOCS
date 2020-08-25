@@ -83,17 +83,44 @@ QUICKSTART ARCHETYPE = creates a standard Maven Project
 - CLEAN = everything in the Target folder is deleted (this can be customized)
 - DEFAULT = BUILD = handles building and deployment
 - SITE = creation of the project "site" documentation  
-A build phase represents a stage in that particular lifecycle and the phase has a responsabilit to execute a goal:  
+A build phase represents a stage in that particular lifecycle and the phase has a responsability to execute a goal:  
+
+![Lifecycles Phase Bindings](images/Maven/lifecycles_bindings.png)
 
 ![Build phases](images/Maven/build_phases.png)
 
-As an example we can assign the clean phase a plugin: 
+As an example we can assign the clean phase a plugin (*help*, with the goal *describe*): 
 `mvn help:describe -Dcmd=clean`
 
 ![Example of running Maven Help plugin in the clean phase](images/Maven/example_clean_maven_help.png)
 
-In IntelliJ - use *Execute Maven Goal* from Maven menu with the command `mvn help:describe -Dcmd=compile`
+#### Execute goals
+
+In IntelliJ - use *Execute Maven Goal* from Maven menu with the command `mvn help:describe -Dcmd=compile` . In this particular case we are invoking the help plugin with the describe goal. All will happen in compile (default) phase.
 
 ![Result of help:describe goal](images/Maven/result_help_plugin.png)
 
-In the phase *Compile* we have a goal of compiling the plugin. The process (default phase) has 23 phases. Some have a bounded goal, some don't have any goal defined.
+In the phase *Compile* we have a goal of compiling the plugin. The process (default phase) has 23 phases. Some have a bounded goal, some don't have any goal defined. To compile we can use maven compiler plugin with the `mvn compiler:compile`. If we get an error like: *Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-cli) on project ... : Compilation failure* we can set compiler plugin in pom.xml:
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+    </plugins>
+</build>
+```
+In this case, because we are running just the goal (compile) and not the whole compile phase, only this goal will run. Also we can run more than one goal (concatenation) (all phases:goals will be written one after another separated by space).
+Ex: `mvn clean:clean compiler:compile compiler:testCompile javadoc:javadoc surefire:test`
+
+#### Execute Phases
+
+Example: `clean test` = will run the clean, resources, compile, resources for the test, compile tests, run tests. Clean phase will not run if not specified because it resides in a different lifecycle (clean lifecycle) than test (which belongs to default lifecycle).  So that will run every phase in the default order until (and including) test phase (with the test goal).
+`clean install` = will run same phases and also package (jar or war) and install in the local repository (User_dir\.m2\repository).

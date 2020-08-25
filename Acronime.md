@@ -1,4 +1,10 @@
-﻿# AJAX
+﻿# ACID
+
+### ATOMICITY, CONSISTENCY, ISOLATION, DURABILITY
+
+- set de proprietăți atribuite tranzacțiilor în baze de date care garantează validarea datelor chiar și atunci când evenimente precum erori, căderi de tensiune sau alte avarii apar
+
+# AJAX
 
 ### ASYNCHRONOUS JAVASCRIPT AND XML
 
