@@ -3,7 +3,6 @@
 
 https://stackabuse.com/sorting-algorithms-in-java/
 
-
 ### Introduction
 
 Sorting data means arranging it in a certain order, often in an
@@ -37,8 +36,6 @@ you get started:
     Sort](https://stackabuse.com/sorting-algorithms-in-java/#mergesort)
 -   [Heapsort](https://stackabuse.com/sorting-algorithms-in-java/#heapsort)
 -   [Quicksort](https://stackabuse.com/sorting-algorithms-in-java/#quicksort)
--   [Sorting in
-    Java](https://stackabuse.com/sorting-algorithms-in-java/#sortinginjava)
 
 **Note**: This article will **not** be dealing with concurrent sorting,
 since it's meant for beginners.
@@ -195,19 +192,22 @@ covered!
 
 #### Implementation
 
-    public static void insertionSort(int[] array) {
-        for (int i = 1; i < array.length; i++) {
-            int current = array[i];
-            int j = i - 1;
-            while(j >= 0 && current < array[j]) {
-                array[j+1] = array[j];
-                j--;
-            }
-            // at this point we've exited, so j is either -1
-            // or it's at the first element where current >= a[j]
-            array[j+1] = current;
-        }
-    }
+   ```java
+public static void insertionSort(int[] array) {
+       for (int i = 1; i < array.length; i++) {
+           int current = array[i];
+           int j = i - 1;
+           while(j >= 0 && current < array[j]) {
+               array[j+1] = array[j];
+               j--;
+           }
+           // at this point we've exited, so j is either -1
+           // or it's at the first element where current >= a[j]
+           array[j+1] = current;
+       }
+   }
+```
+
 
 #### Time Complexity
 
@@ -527,7 +527,7 @@ We heapify the shortened array again, and repeat the process:
 
 And so on, I'm sure you can see the pattern emerging.
 
-#### Implementation {#implementation}
+#### Implementation
 
     static void heapify(int[] array, int length, int i) {
         int leftChild = 2*i+1;
@@ -602,7 +602,7 @@ This guarantees that the pivot is in its proper place after the process.
 Then the algorithm recursively does the same for the left and right
 portions of the array.
 
-#### Implementation {#implementation}
+#### Implementation
 
     static int partition(int[] array, int begin, int end) {
         int pivot = end;

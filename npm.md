@@ -63,7 +63,9 @@ The scripts can be run with:
 # 
 ### React
 
-(in prealabil create-react-app global trebuie sa fie preinstalat cu: npm install - g create-react-app)
+(in prealabil create-react-app global trebuie sa fie preinstalat cu:
+
+`npm install - g create-react-app`)
 
 instalam dependentele cu: 
 
