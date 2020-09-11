@@ -3,7 +3,7 @@
 - build tool
 - dependency management
 
-- projects described by a POM (Project Object Model) stored in XML format
+- projects described by a **POM (Project Object Model)** stored in XML format
 
 - build life cycle - made in phases
 

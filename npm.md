@@ -60,6 +60,10 @@ The scripts can be run with:
 
     npm run build
     
+### To avoid malicious packages installed through scripts:
+
+`npm config set ignore-scripts true`
+    
 # 
 ### React
 
