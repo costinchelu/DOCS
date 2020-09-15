@@ -1,4 +1,4 @@
-# DB INTRODUCTION
+﻿# DB INTRODUCTION
 
 <u>**Obiectivul principal al sistemelor informatice**</u> îl constituie:
 -	culegerea

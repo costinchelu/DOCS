@@ -1,4 +1,4 @@
-﻿# VERSION CONTROL (GIT)
+# VERSION CONTROL (GIT)
 
 ### 3 STAGES OF A FILE:
 **I ) COMMITED** – data is stored in local database  
