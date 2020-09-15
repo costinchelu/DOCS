@@ -101,8 +101,9 @@ Links from github can be pasted with shift+insert (in the linux command line)
 
 On creating a repo, github creates a branch named master. So when the local master branch is up to date with the origin/master branch on github server.
 
-`git pull` = pushes work (HEAD) onto the remote repo  
-`git push` = pull out new content existing on the remote repo  
+`git pull` = fetch from and integrate with another repository or a local branch    
+`git push` = update remote refs along with associated objects  
+`git push -f origin master` = force push (even when we have merge conflicts)  
 `git fetch` = getting info about new content from the remote repo (no merging into the master branch on the working machine). If we want to download the changes from the origin/master we can `git merge origin/master`  
 
 ### STATUS
@@ -121,7 +122,7 @@ A file can be in two states in the same time. For example, we can modify it (in 
 ### LOGS
 
 `git log` = list commits made until now (to limit displaying all commits we can use git log -5 (for example - in this case only the last 5 commits will be displayed).  
-For all, we can scroll screen up & down with J & K keys. To exit press q.
+For all, we can scroll screen up & down with J & K keys. <u>**To exit press q.**</u>
 
 `git log --online` = short log of commits  
 `git log –-stat` = detailed view  

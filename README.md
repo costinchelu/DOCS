@@ -1,1 +1,2 @@
-# Diverse notițe
+# Notes
+

@@ -13,8 +13,7 @@ Core container (Spring Core Framework):
 
 # IoC = outsourcing construction and management of objects
 
-Spring container:
-- Primary functions
+Spring container -> Primary functions:  
 - Create and manage objects (Inversion of Control)
 - Inject object’s dependencies (Dependency Injection)
 
@@ -77,14 +76,12 @@ Spring injection types (all have the same result):
 @PropertySource("classpath:application.properties") = to inject properties (values of the key from a .properties file)
 
 
-
 # Spring MVC
 
 Spring MVC – How to include JS or CSS files in a JSP page  
 https://mkyong.com/spring-mvc/spring-mvc-how-to-include-js-or-css-files-in-a-jsp-page/
 
 
-
 # Hibernate
 
-- ORM
+

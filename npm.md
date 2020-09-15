@@ -12,7 +12,9 @@ To exit npm start use:
 
         ctrl+V, ctrl+C
 
-All of the CLI commands can be found at: https://docs.npmjs.com/cli-documentation/cli
+All of the CLI commands can be found at:
+
+https://docs.npmjs.com/cli-documentation/cli
 
 Used to initialize npm package.json at the start of a project
 
@@ -31,7 +33,7 @@ _react (library used for interfaces)_
     npm install - g create-react-app
     create-react-app <appname>
 
-    npm install - g create-react-app -> este acum deprecated
+    npm install - g create-react-app -> now deprecated
     se va folosi npx create-react-app <appname>
 
 It will download files necessary for a React Project
@@ -67,46 +69,46 @@ The scripts can be run with:
 # 
 ### React
 
-(in prealabil create-react-app global trebuie sa fie preinstalat cu:
+(previously create-react-app global should be preinstalled with:
 
 `npm install - g create-react-app`)
 
-instalam dependentele cu: 
+installing dependencies with: 
 
 ```node
 create-react-app <appname>
 ```
-sau: 
+or: 
 
 ```node
 npx create-react-app my-app
 ```
 
-(in acest caz, aplicatia va fi numită my-app)
+(in this case the app will be named my-app)
 
-dupa instalarea dependențelor:
+after installing dependencies:
 
-cd in _directorul_aplicatiei_  
+cd in _app_folder_  
 
 ```node
 npm start
 ```
 
-instalam si un event emitter:
+NEED event emitter:
 
 ```node
 npm i fbemitter
 ```
 
 
-pentru simple-routing: 
+for simple-routing: 
 
 ```node
 npm install --save react-router-dom
 ```
 
-pentru redux:  
-avem nevoie de redux, react-redux, primereact (pt componente custom)
+for redux:  
+NEED redux, react-redux, primereact (custom components)
 
 ```node
 npm install --save redux
@@ -115,7 +117,7 @@ npm install primereact --save
 npm install primeicons --save
 ```
 
-sau mai bine:
+or better:
 
 ```node
 npm i primereact primeflex primeicons react-transition-group classnames redux react-redux redux-promise-middleware redux-logger --save
@@ -124,10 +126,10 @@ npm i classnames --save
 ```
 
 
-npm update -> pentru update la pachetele npm
+npm update -> update npm packages
 
 
-Cursul "Integrarea de servicii externe":
+Course "Integrarea serviciilor externe":
 ```node
 npm i express request request-promise dotenv --save
 ```
