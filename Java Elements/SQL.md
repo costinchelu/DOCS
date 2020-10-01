@@ -77,7 +77,7 @@ Baza de date conține toți utilizatorii precum și datele lor (precum și utili
 <u>**Normalizare**</u>  
 -	**FN1**. O tabelă este în FN1 dacă toate atributele ei conţin valori elementare (nedecompozabile), adică fiecare tuplu <u>nu trebuie să aibă date la *nivel de grup* sau *repetitiv*</u>. (nu putem avea câmpuri cu date compuse, gen șiruri de numere, sau mai multe valori într-un câmp) (de asemenea trebuie să eliminăm valori care se tot repetă (cu excepția unor chei externe))
 
--	**FN2**. O tabelă este în FN2 dacă şi numai dacă este în FN1 şi <u>fiecare atribut noncheie</u> al tabelei <u>este *dependent funcţional complet de cheie*</u>. (fără dependențe parțiale) (dependență parțială = există un atribut care depinde de doar una din chei (în caz că avem mai mult de una))
+-	**FN2**. O tabelă este în FN2 dacă şi numai dacă este în FN1 şi <u>fiecare atribut noncheie</u> al tabelei <u>este *dependent funcţional complet de cheie*</u>. (fără dependențe funcționale parțiale) (dependență parțială = există un atribut care depinde de doar una din chei (în caz că avem mai mult de una))
 
 -	**FN3**. O tabelă este în FN3 dacă şi numai dacă este în FN2 şi <u>fiecare atribut noncheie depinde în mod *netranzitiv* de cheia</u> tabelei. (fără dependențe tranzitive) (există un atribut care depinde de un alt atribut care nu este cheie)
 
@@ -106,7 +106,16 @@ Baza de date conține toți utilizatorii precum și datele lor (precum și utili
 <u>**Instrucțiuni**</u>
 
 -	**DDL (Data Definition Language)** - definire, întreţinere şi ştergere obiecte BD;
--	**DML (Data Manipulation Language)** - regăsire, inserare, actualizare, ştergere rânduri de date; 
+    - create
+    - alter (used to add a new column, modify an existing column, define a DEFAULT value for a column, drop a column)
+    - rename
+    - drop
+    - truncate
+-	**DML (Data Manipulation Language)** - regăsire, inserare, actualizare, ştergere rânduri de date;  
+    - select
+    - insert
+    - update
+    - delete
 -	**TCL (Transaction Control Language)** - controlul instrucţiunilor DML (COMMIT, ROLLBACK, SAVEPOINT etc);
 
 
@@ -153,14 +162,27 @@ ALTER TABLE example
 
 
 ALTER TABLE example
-	DROP COLUMN ex_quantity;
+    SET UNUSED (ex_quantity);
 
+
+ALTER TABLE example
+	DROP COLUMN ex_quantity;
+	
 
 DROP TABLE example;
 
 
-TRUNCATE TABLE example;
+-- sometimes we can recover a table from DB recycle bin:
 
+FLASHBACK TABLE example TO BEFORE DROP;
+
+-- to actually bypass recycle bin:
+
+DROP TABLE example PURGE;
+
+
+TRUNCATE TABLE example;
+-- does not generate rollback information (as DELETE)
 
 RENAME example TO examples;
 ```
@@ -228,6 +250,22 @@ SELECT AVG(MAX(salary))
   -- for each group defined by the GROUP BY clause (department_id), 
   -- and aggregates the results again.
 ```
+
+
+## Constrint types
+
+- NOT NULL
+- UNIQUE
+- PRIMARY KEY
+- FOREIGN KEY
+- CHECK
+
+It is advisable to name the constraint:  
+`CONSTRAINT clients_client_num_pk PRIMARY KEY (client_number)`
+
+Example of a composite unique-key (at table level):  
+`CONSTRAINT clients_phone_email_uk UNIQUE(email, phone)`
+
 
 ## Primary key vs unique key. Differences.
 

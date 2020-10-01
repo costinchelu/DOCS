@@ -1,7 +1,7 @@
 ## Checked vs. unchecked exceptions. Why would one use former or later?
 
 **Unchecked** are the exceptions that are not checked at compiled time. In C++, all exceptions are unchecked, so it is not forced by the compiler to either handle or specify the exception. It is up to the programmers to be civilized, and specify or catch the exceptions.
-In Java exceptions under Error and RuntimeException classes are unchecked exceptions, everything else under throwable is checked.
+<u>In Java exceptions under Error and RuntimeException classes are unchecked exceptions, everything else under throwable is checked.</u>
 
 ```java
 class Main { 
@@ -37,14 +37,25 @@ class Main {
 
 ![Throwable interface](images/Throwable.png)
 
+
+
+## Difference in Error and UncheckedException
+
+An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions. The ThreadDeath error, though a "normal" condition, is also a subclass of Error because most applications should not try to catch it.  
+The class Exception and its subclasses are a form of Throwable that indicates conditions that a reasonable application might want to catch.  
+So, even though an unchecked exception is not required to be caught, you may want to. An error, you don't want to catch
+
+
+
 ## Could we have only try and finally without catch
 
 Yes,  we can have try without catch block by using finally block.
 You can use try with finally. As you know finally block always executes even if you have exception or return statement in try block except in case of System.exit().
 
+
 ## Cases when the finally block isn't executed
 
-If the JVM exits while the try or catch code is being executed, then the finally block may not execute. Likewise, if the thread executing the try or catch code is interrupted or killed, the finally block may not execute even though the application as a whole continues.
+If the JVM exits (fatal error) while the try or catch code is being executed, then the finally block may not execute. Likewise, if the thread executing the try or catch code is interrupted or killed, the finally block may not execute even though the application as a whole continues.
 
 ```java
 try {
@@ -56,11 +67,6 @@ try {
     }
 ```
 
-## Difference in Error and UncheckedException
-
-An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions. The ThreadDeath error, though a "normal" condition, is also a subclass of Error because most applications should not try to catch it.  
-The class Exception and its subclasses are a form of Throwable that indicates conditions that a reasonable application might want to catch.  
-So, even though an unchecked exception is not required to be caught, you may want to. An error, you don't want to catch
 
 ## What is exception handling mechanism
 
@@ -95,3 +101,10 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
     e.printStackTrace();
 }
 ```
+
+
+## Throws vs throw
+
+- Throws is used to propagate one or more checked exception(s)
+- Exceptions will be propagated in the call stack untill a class will handle it (if class A() calls B() which calls C(), an exception in C() will propagate to B() and then to A(), unless a class will handle (catch) it)
+- Throw is used inside a method or a static block to explicitly throw an exception

@@ -17,10 +17,11 @@
 **static** =  share the same variable or method of a given class. (variables, methods, blocks and nested classes). This (variable or method) is loaded in memory once at the time of class loading, so it saves memory, since it's not defined per object in Java. Static methods creates behaviour at the class level.  
 Instance member variables cannot be accessed by a static method.
 But an instance method can call both instance variables and static variables.  
-**final** = define an entity that can only be assigned once. Once a final variable has been assigned, it always contains the same value. For classes, a final class will not be inherited  
-**transient** = used when a member variable not to be serialized when it is persisted to streams of bytes (security constraint). (so, instead of being serialized, the variable will be reduced to its default value.  
+**final** = define an entity that can only be assigned once. Once a final variable has been assigned, it always contains the same value. For classes, a final class will not be inherited (also methods).  
+**transient** = used when a <u>member variable</u> not to be serialized when it is persisted to streams of bytes (security constraint). (so, instead of being serialized, the variable will be reduced to its default value.  
 **strictfp** =  used for restricting floating-point calculations and ensuring same result on every platform while performing operations in the floating-point variable.  
 **volatile** = another way (like synchronized, atomic wrapper) of making class thread safe (method or class instance can be used by multiple threads at the same time without any problem). Volatile variables have the visibility features of synchronized but not the atomicity features. The values of volatile variable will never be cached and all writes and reads will be done to and from the main memory. 
+
 
 ## Default values for data types
 
@@ -40,12 +41,12 @@ But an instance method can call both instance variables and static variables.
 
 **LOCAL VARIABLES**   ->   <u>Java does not initialize local variables with any default value</u> (will be null by default)
 
+
 ## Reflection, introspection
 
 The name reflection is used to modify (describe) code which is able to inspect other code in the same system (or itself).
 
-> The ability to inspect the code in the system and see object types is not reflection, but rather Type Introspection. Reflection is then the ability to make modifications at runtime by making use of introspection. The distinction is necessary here as some languages support introspection, but do not support reflection. One such example is C++
-
+> The ability to inspect the code in the system and see object types is not reflection, but rather Type Introspection. Reflection is then the ability to make modifications at runtime by making use of introspection. The distinction is necessary here as some languages support introspection, but do not support reflection. One such example is C++.
 
 For example, say you have an object of an unknown type in Java, and you would like to call a 'doSomething' method on it if one exists. Java's static typing system isn't really designed to support this unless the object conforms to a known interface, but using reflection, your code can look at the object and find out if it has a method called 'doSomething' and then call it if you want to.
 
@@ -163,7 +164,8 @@ class Demo
 
 ## Serialization
 
-When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes.
+When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes (byte array).
+
 
 ## this' vs 'super'
 
@@ -180,6 +182,7 @@ We cannot use both super() and this() in the same constructor.
 
 <u>In Java, Object class is the superclass of every other class.</u>
 
+
 ## Contract between <u>equals()</u> and <u>hashCode()</u>
 
 The **equals()** method of Object class checks the equality of the objects and accordingly it returns true or false. *The default implementation, as provided by Object class, checks the equality of the objects on the basis if both references refer to the same object*. It does not check the value or state of the objects. But we can override this method to provide own implementation to compare the state or value of the objects.  
@@ -189,6 +192,7 @@ If we override equals(), we must also override hashCode() or else, if we create 
 [LINK: implement-equals-method-correctly](https://www.sitepoint.com/implement-javas-equals-method-correctly/)  
 [LINK: implement-hashcode-method-correctly](https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/)
 
+
 ## Rules to create equals method
 
 - **Reflexive**: x.equals(x) == true , an object must equal to itself.  
@@ -196,6 +200,7 @@ If we override equals(), we must also override hashCode() or else, if we create 
 - **Transitive**: if x.equals(y) and y.equals(z); then x.equals(z)  
 - **Consistent**: if x.equals(y)==true and no value is modified, then it’s always true for every call  
 - For any non-null object x, x.equals(null)==false
+
 
 ## Access modifiers in Java
 
@@ -272,7 +277,17 @@ public class Person implements Cloneable {
 | **Example:** StringBuilder, java.util.Date   | **Example:** String, Boxed primitive objects (wrapper classes) like Integer, Long and etc |
 
 
-## StringBuffer vs StringBuilder
+## Immutable class creation
+
+- add final modifier (to prevent extension)
+- fields are private
+- fields are final (to assign value only once)
+- no setter methods for member variables
+- use deep copy to initialize all the fields by a constructor
+- clone() method should return a copy of object instead of  the actual object reference
+
+
+## StringBuffer vs StringBuilder vs String
 
 Java provides three classes to represent a sequence of characters: 
 - String, 
@@ -281,7 +296,9 @@ Java provides three classes to represent a sequence of characters:
 
 The String class is an immutable class whereas StringBuffer and StringBuilder classes are mutable.
 
-StringBuilder is more efficient than StringBuffer, but it is not synchronized (not thread safe). StringBuffer is thread safe.
+- StringBuilder is more efficient (for processing operations) than StringBuffer, but it is not synchronized (not thread safe). 
+- StringBuffer is thread safe. 
+- String is the least efficient.
 
 
 ## float vs BigDecimal
@@ -299,12 +316,16 @@ StringBuilder is more efficient than StringBuffer, but it is not synchronized (n
 - nested class does not exists independently of outer class
 - NC has access to all members of enclosing class (however the reverse is not true)
 - NC is also a member of its enclosing class
-- there are to type of nested classes:
-    - static nested class: are declared static. In this case, without an outer class object existing, there may be a static nested class object. i.e., an object of a static nested class is not strongly associated with the outer class object. `OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();`
-    - inner class:  non-static nested class. To instantiate an inner class, you must first instantiate the outer class. Then, create the inner object within the outer object: `OuterClass.InnerClass innerObject = outerObject.new InnerClass();`
-      - local inner class
+- there are two type of nested classes:
+    - static nested class: are declared static. In this case, without an outer class object existing, there may be a static nested class object. i.e., an object of a static nested class is not strongly associated with the outer class object.   `OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();`  
+    
+    - inner class:  non-static nested class. To instantiate an inner class, you must first instantiate the outer class. Then, create the inner object within the outer object:  
+    `OuterClass.InnerClass innerObject = outerObject.new InnerClass();`
+      - member inner class
+      - local inner class (access only constant local members)
       - anonymous inner class
 
+- There can also be nested interfaces that are by default static
 
 ## Regular vs. static initialization blocks
 
@@ -347,7 +368,7 @@ Autoboxing pitfalls:
 ## Java object references
 
 A reference is an address that indicates where an object's variables and methods are stored.  
-Example a = new Example();  
+```Example a = new Example();```  
 here a is actually a reference which is pointing to memory assigned (in heap) using new keyword.  
 
 
@@ -402,3 +423,15 @@ Collection<String> coll = new LinkedList<String>();
     - It is platform dependent 
     - Includes JIT (just in time compiler) - used for performance improvement by compiling at execution time rather earlier
 
+
+## Garbage collection
+
+Java has an internal mechanism called Garbage collection to reclaim the memory of unused projects at run time. In Java, there are no pointers. Memory management and allocation is done by JVM. Since memory allocation is automated, after some time JVM may go low on memory. At that time, JVM has to free memory from unused objects.
+
+It is a daemon in JVM that monitors the memory usage and performs memory cleanup. Once JVM is low on memory, GC process finds the <u>unused objects that are not referenced by other objects</u>. These unused objects are cleaned up by Garbage Collector daemon in JVM.
+
+An object can be Garbage Collected by JVM, if it is not reachable.
+There are two cases for deciding eligibility of objects for Garbage
+Collection:
+1. An Object/instance that cannot be reached by a live thread.
+2. A set of circularly referenced instances that cannot be reached by any other instance outside that set.
