@@ -18,7 +18,7 @@
 Instance member variables cannot be accessed by a static method.
 But an instance method can call both instance variables and static variables.  
 **final** = define an entity that can only be assigned once. Once a final variable has been assigned, it always contains the same value. For classes, a final class will not be inherited (also methods).  
-**transient** = used when a <u>member variable</u> not to be serialized when it is persisted to streams of bytes (security constraint). (so, instead of being serialized, the variable will be reduced to its default value.  
+**transient** = used for a <u>member variable</u> not to be serialized. Instead of being serialized, the variable will be reduced to its default value (not considered part of the persistent state of the object).  
 **strictfp** =  used for restricting floating-point calculations and ensuring same result on every platform while performing operations in the floating-point variable.  
 **volatile** = another way (like synchronized, atomic wrapper) of making class thread safe (method or class instance can be used by multiple threads at the same time without any problem). Volatile variables have the visibility features of synchronized but not the atomicity features. The values of volatile variable will never be cached and all writes and reads will be done to and from the main memory. 
 
@@ -164,7 +164,15 @@ class Demo
 
 ## Serialization
 
-When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes (byte array).
+OBJECT DATA ->serialization -> STREAM OF BYTES ->deserialization -> OBJECT DATA
+
+When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes (byte array) which represents the class, version and internal state of the object.  
+Purpose:
+- communication
+- persistence
+- caching (improve object creation performance)
+- cross JVM synchronization
+
 
 
 ## this' vs 'super'

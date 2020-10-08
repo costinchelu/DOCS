@@ -1,3 +1,9 @@
+## Exception handling mechanism
+
+Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, IOException, SQLException, RemoteException, etc. The core advantage of exception handling is to maintain the normal flow of the application. An exception normally disrupts the normal flow of the application that is why we use exception handling.
+
+
+
 ## Checked vs. unchecked exceptions. Why would one use former or later?
 
 **Unchecked** are the exceptions that are not checked at compiled time. In C++, all exceptions are unchecked, so it is not forced by the compiler to either handle or specify the exception. It is up to the programmers to be civilized, and specify or catch the exceptions.
@@ -68,11 +74,7 @@ try {
 ```
 
 
-## What is exception handling mechanism
-
-Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, IOException, SQLException, RemoteException, etc. The core advantage of exception handling is to maintain the normal flow of the application. An exception normally disrupts the normal flow of the application that is why we use exception handling.
-
-## What is try-with-resources 
+## Try-with-resources 
 
 Support for try-with-resources – introduced in Java 7 – allows us to declare resources to be used in a try block with the assurance that the resources will be closed when after the execution of that block. Simply put, to be auto-closed, a resource must be both declared and initialized inside the *try*.
 

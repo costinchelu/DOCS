@@ -32,6 +32,12 @@ In most cases, composition can be used interchangeably with inheritance. One thi
 Sometimes, it’s true that we use inheritance inappropriately. The Liskov Substitution principle would be the most important guideline to determine whether inheritance fits your design or not. Use inheritance when you really need it, not just to reuse some code. When you’re considering using inheritance, ask yourself whether the subclass really is a more specialized version of the superclass, otherwise, some days you will experience a mess.
 
 
+## Abstraction vs encapsulation
+
+- ABSTRACTION happens at class level design -> it result in hiding the implementation details
+- ENCAPSULATION hides information by marking member variables as private and providing when necessary getters and setters
+
+
 ## Aggregation vs composition
 
 Both are types of association relations.
@@ -116,3 +122,10 @@ Examples: Serializable, Clonnable and Remote interface. All these interfaces are
 Marker interfaces can be replaced by annotations (they convey metadata about the class to its consumers without creating a sepparate type for it).
 
 
+## Make an immutable class
+
+-> add final modifier to class  
+-> all fields private final  
+-> no setters  
+-> use deep copy to initialize all fields by a constructor  
+-> clone() - return a copy of the object (instead of the actual object reference)
