@@ -194,9 +194,12 @@ We cannot use both super() and this() in the same constructor.
 ## Contract between <u>equals()</u> and <u>hashCode()</u>
 
 The **equals()** method of Object class checks the equality of the objects and accordingly it returns true or false. *The default implementation, as provided by Object class, checks the equality of the objects on the basis if both references refer to the same object*. It does not check the value or state of the objects. But we can override this method to provide own implementation to compare the state or value of the objects.  
+
 **hashCode()** method returns an integer value, which is referred to as the hash code value of an object. Every Object, at the time of creation assigned with a unique 32-bit, signed int value. This value is the hash code value of that object.  
-Equals consistency: objects that are equal to each other must return the same hashCode.  
-If we override equals(), we must also override hashCode() or else, if we create 2 objects with the same state, they will have different hashCode.  
+
+**Equals consistency:** objects that are equal to each other must return the same hashCode.  
+If we override equals(), we must also override hashCode() or else, if we create 2 objects with the same state, they will have different hashCode (because they will have different locations in the memory).  
+
 [LINK: implement-equals-method-correctly](https://www.sitepoint.com/implement-javas-equals-method-correctly/)  
 [LINK: implement-hashcode-method-correctly](https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/)
 
@@ -275,7 +278,7 @@ public class Person implements Cloneable {
 ```
 
 
-## Nutable vs immutable object or class 
+## Mutable vs immutable object or class 
 
 | Mutable                                  | Immutable                                |
 |------------------------------------------|------------------------------------------|

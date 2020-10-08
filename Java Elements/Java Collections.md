@@ -14,11 +14,13 @@ The Java Collections Framework:
 - QUEUES store objects that are processed in a first-in, first-out fashion.
 - PRIORITYQueues store objects that are processed in the order of their priorities.
 
+
 ## Interfaces extending Collection. Is Map part of Collection interface
 
 ![Collection interface](images/collections.png)
 
 No, Map is not part of Collection interface. It's a part of Collections Framework.
+
 
 ## ArrayList vs LinkedList
 
@@ -33,14 +35,41 @@ is accessed and modified by two or more threads concurrently. For the many appli
 
 **PriorityQueue** class implements a priority queue. By default, the priority queue orders its elements according to their natural ordering using Comparable. The element with the least value is assigned the highest priority, and thus is removed from the queue first. If there are several elements with the same highest priority, the tie is broken arbitrarily. You can also specify an ordering using Comparator in the constructor PriorityQueue(initialCapacity, comparator).
 
+
+## List vs Set
+
+LISTS: 
+- ordered sequence of elements;
+- we can insert elements in a certain position indicated by index
+- can hold duplicate elements
+
+SETS:  
+- unordered elements
+- no positional insertion (unsorted)
+- no duplicate elements
+
+
+## Treeset vs. HashSet
+
+|                    | TreeSet            | HashSet                       |
+|--------------------|--------------------|-------------------------------|
+| **Ordering**           | Natural ordering   | Random order                  |
+| **Null value element** | Not allowed        | Can store a null value object |
+| **Performance**       | log(n) time        | constant time                 |
+| **Speed**          | lower than HashSet |                               |
+| **Internal structure** | NavigableMap       | HashMap                       |
+| **Element comparison** | uses compareTo() | uses equals() |
+
+
+
 ## TreeSet vs TreeMap
 
-A **set** is an efficient data structure for storing and processing nonduplicate elements. A **map** is like a dictionary that provides a quick lookup to retrieve a value using a key.
+A **set** is an efficient data structure for storing and processing nonduplicate elements.  
+A **map** is like a dictionary that provides a quick lookup to retrieve a value using a key.
 
 Sets are more efficient than lists for storing nonduplicate elements. Lists are useful for accessing elements through the index.
 
-Set has three concrete classes: HashSet, LinkedHashSet,
-or TreeSet.
+Set has three concrete classes: HashSet, LinkedHashSet, TreeSet.
 
 A **HashSet** can be used to store duplicate-free elements.
 
