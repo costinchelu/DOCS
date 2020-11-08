@@ -24,8 +24,10 @@ No, Map is not part of Collection interface. It's a part of Collections Framewor
 
 ## ArrayList vs LinkedList
 
-The **ArrayList** class and the **LinkedList** class are two concrete implementations of the List interface. **ArrayList** stores elements in an array. The array is dynamically created. If the capacity of the array is exceeded, a larger new array is created and all the elements from
-the current array are copied to the new array. **LinkedList** stores elements in a linked list.   
+The **ArrayList** class and the **LinkedList** class are two concrete implementations of the List interface.
+
+**ArrayList** stores elements in an array. The array is dynamically created. If the capacity of the array is exceeded, a larger new array is created and all the elements from the current array are copied to the new array. **LinkedList** stores elements in a linked list.   
+
 If you need to support random access through an index without inserting or removing elements at the beginning of the list, ArrayList is the most efficient. If, however, your application requires the insertion or deletion of elements at the beginning of the list, you should choose LinkedList. A list can grow or shrink dynamically. Once it is created, an array is fixed. If your application does not require the insertion or deletion of elements, an array is the most efficient data structure.
 
 ## Vector and PriorityQueue
@@ -61,11 +63,10 @@ SETS:
 | **Element comparison** | uses compareTo() | uses equals() |
 
 
-
 ## TreeSet vs TreeMap
 
-A **set** is an efficient data structure for storing and processing nonduplicate elements.  
-A **map** is like a dictionary that provides a quick lookup to retrieve a value using a key.
+- A **set** is an efficient data structure for storing and processing nonduplicate elements.  
+- A **map** is like a dictionary that provides a quick lookup to retrieve a value using a key.
 
 Sets are more efficient than lists for storing nonduplicate elements. Lists are useful for accessing elements through the index.
 
