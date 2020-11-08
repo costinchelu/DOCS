@@ -191,28 +191,6 @@ We cannot use both super() and this() in the same constructor.
 <u>In Java, Object class is the superclass of every other class.</u>
 
 
-## Contract between <u>equals()</u> and <u>hashCode()</u>
-
-The **equals()** method of Object class checks the equality of the objects and accordingly it returns true or false. *The default implementation, as provided by Object class, checks the equality of the objects on the basis if both references refer to the same object*. It does not check the value or state of the objects. But we can override this method to provide own implementation to compare the state or value of the objects.  
-
-**hashCode()** method returns an integer value, which is referred to as the hash code value of an object. Every Object, at the time of creation assigned with a unique 32-bit, signed int value. This value is the hash code value of that object.  
-
-**Equals consistency:** objects that are equal to each other must return the same hashCode.  
-If we override equals(), we must also override hashCode() or else, if we create 2 objects with the same state, they will have different hashCode (because they will have different locations in the memory).  
-
-[LINK: implement-equals-method-correctly](https://www.sitepoint.com/implement-javas-equals-method-correctly/)  
-[LINK: implement-hashcode-method-correctly](https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/)
-
-
-## Rules to create equals method
-
-- **Reflexive**: x.equals(x) == true , an object must equal to itself.  
-- **Symmetry**: if(x.equals(y)==true) then y.equals(x) == true.  
-- **Transitive**: if x.equals(y) and y.equals(z); then x.equals(z)  
-- **Consistent**: if x.equals(y)==true and no value is modified, then it’s always true for every call  
-- For any non-null object x, x.equals(null)==false
-
-
 ## Access modifiers in Java
 
 | Access Modifier                          | within class | within package | outside package by subclass only | outside package |
@@ -223,59 +201,6 @@ If we override equals(), we must also override hashCode() or else, if we create 
 | <b style="color: rgba(0, 0, 0, 0.75);">Public | Y            | Y              | Y                                | Y               |
 
 !! protected will permit access to child classes even if they are in another package. Also will permit access to all classes within the same package.
-
-
-## Object cloning
-
-Object.clone() method is used for creating an exact copy of objects in Java. It acts like a copy constructor. It creates and returns a copy of the object, with the same class and with all the fields having same values of the original object. The return type is an Object so it has to explicitly be cast to actual type.
-
-```java
-// (I) it should implement Cloneable
-public class Person implements Cloneable {
-
-    private String name;
-    private int income;
-    private City city;          // deep copy
-    private Country country;    // shalow copy
-
-
-    public Person(String name, int income, City city, Country country) {
-        this.name = name;
-        this.income = income;
-        this.city = city;
-        this.country = country;
-    }
-
-    // no @Override, means we are not overriding clone
-    // (II) it should throw CloneNotSupported
-    public Person clone() throws CloneNotSupportedException {
-
-        Person cloneObj = (Person) super.clone();   // (III) calls clone() from Object class
-
-        // all other primitive fields are cloned by default
-        // by default it will shallow copy all object references,
-        // but we can still make deep copy by implementing clone() in those classes:
-
-        cloneObj.city = (City) this.city.clone();
-
-        // to make a deep copy of city we need to call clone that will also be implemented in City class
-        // and let's not forget that clone() will return an Object so we need to cast it to City
-
-        // if we are not implementing clone also for Country, we will just shallow copy it
-        
-        return cloneObj;
-    }
-    
-    // but we can implement a copy constructor (and also implement copy constructors in aggregated classes):
-    public Person(Person original) {
-
-        this.name = original.name;
-        this.income = original.income;
-        this.city = new City(original.city);
-        this.country = new Country(original.country);
-    }
-}
-```
 
 
 ## Mutable vs immutable object or class 
@@ -337,6 +262,7 @@ The String class is an immutable class whereas StringBuffer and StringBuilder cl
       - anonymous inner class
 
 - There can also be nested interfaces that are by default static
+
 
 ## Regular vs. static initialization blocks
 
