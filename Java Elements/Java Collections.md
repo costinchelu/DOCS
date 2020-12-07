@@ -80,12 +80,14 @@ SortedSet is a subinterface of Set, which guarantees that the
 elements in the set are sorted. **TreeSet** implements the SortedSet interface.  
 
 A **map** is a container object that stores a collection of key/value pairs. It enables fast retrieval, deletion, and updating of the pair through the key. A map stores the values along with the keys.
-The keys are like indexes. In List, the indexes are integers. In Map, the keys can be any objects. A map cannot contain duplicate keys. Each key maps to one value. A key and its corresponding value form an entry stored in a map,
+The keys are like indexes. In List, the indexes are integers. In Map, the keys can be any objects. A map cannot contain duplicate keys. Each key maps to one value. A key and its corresponding value form an entry stored in a map. Generally in HashMap implementation, if we want to use an object as key, then we override equals() method.
 
 ![Map interface](images/Map.png)
 
-The **HashMap** class is efficient for locating a value, inserting an entry, and deleting an entry. **LinkedHashMap** extends HashMap with a linked-list implementation that supports an ordering of the entries in the map. The entries in a HashMap are not ordered, but the entries in a LinkedHashMap can be retrieved either in the order in which they were inserted into the map (known as the insertion order) or in the order in which they were last accessed, from least recently to most recently accessed (access order).
-The **TreeMap** class is efficient for traversing the keys in a sorted order. The keys can be sorted using the Comparable interface or the Comparator interface.
+The **HashMap** class is efficient for locating a value, inserting an entry, and deleting an entry. It has a default value for load factor of 0.75.  
+**LinkedHashMap** extends HashMap with a linked-list implementation that supports an ordering of the entries in the map. The entries in a HashMap are not ordered, but the entries in a LinkedHashMap can be retrieved either in the order in which they were inserted into the map (known as the insertion order) or in the order in which they were last accessed, from least recently to most recently accessed (access order).  
+The **TreeMap** class is efficient for traversing the keys in a sorted order. The keys can be sorted using the Comparable interface or the Comparator interface.  
+**NavigableMap** provides the capabilities of a Map, SortedMap and navigation in one collection. Methods like lowerEntry, floorEntry, ceilingEntry, and higherEntry return Map.Entry objects associated with keys respectively less than, less than or equal, greater than or equal, and greater than a given key.
 
 
 ## Thread-Safe Classes in Collections Framework

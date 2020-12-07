@@ -17,6 +17,8 @@
 
 **Baza de date relațională** = reprezintă un ansamblu de relații (tabele) de date împreună cu legăturile dintre ele (<u>ansamblu de tabele normalizate</u>, grupate în jurul unui subiect, în principiu, bine definit)
 
+![BD](images/bd.png)
+
 **Sistemul de gestiune a unei baze de date (<u>database management system</u> - DBMS)** 
 	componentă software care interacționează cu:
 -	utilizatorii finali, 
@@ -116,7 +118,10 @@ Baza de date conține toți utilizatorii precum și datele lor (precum și utili
     - insert
     - update
     - delete
--	**TCL (Transaction Control Language)** - controlul instrucţiunilor DML (COMMIT, ROLLBACK, SAVEPOINT etc);
+-	**TCL (Transaction Control Language)** - controlul instrucţiunilor DML 
+    - commit
+    - rollback 
+    - savepoint etc.
 
 
 O <u>**tranzacţie**</u> este o unitate logică de lucru care cuprinde <u>una sau mai multe instrucţiuni SQL</u> executate de către <u>un singur utilizator</u>. Tranzacţia începe cu prima instrucţiune SQL executabilă şi se termină în mod explicit cu *finalizarea* (<u>commit</u>) sau, după caz, *anularea tranzacţiei* (<u>rollback</u>).  
@@ -236,6 +241,18 @@ CREATE SYNONYM name FOR example;
 **DCL** is short name of **Data Control Language**, mostly concerned with rights, permissions and other controls of the database system.
 
 **TCL** is short name of **Transaction Control Language** which deals with transaction within a database.
+
+## TRUNCATE vs DELETE
+
+| DELETE                                   | TRUNCATE                                 |
+|------------------------------------------|------------------------------------------|
+| used to delete specified rows(one or more) | used to delete all the rows from a table |
+| it is a DML(Data Manipulation Language) command | it is a DDL(Data Definition Language) command |
+| there may be WHERE clause in DELETE command in order to filter the records | there may not be WHERE clause in TRUNCATE command |
+| a tuple is locked before removing it | data page is locked before removing the table data |
+| we can rollback the data even after using DELETE command | we can’t rollback |
+| slower than TRUNCATE command | faster than DELETE command |
+
 
 ## Aggregate functions with examples
 
