@@ -1,3 +1,10 @@
+## Thread
+
+A thread in Java is a lightweight process that runs within another process or thread. It is an independent path of execution in an application. JVM gives
+each thread its own method-call stack.  
+When we start JVM, Java starts one thread. This thread calls the main method of the class passed in argument to java call.
+
+
 ## Thread vs Runnable, run() vs start()
 
 ```java
@@ -164,9 +171,9 @@ public class SendReceive {
 }
 ```
 
-## Difference between sleep and wait
+## Difference between sleep() and wait()
 
-A wait can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
+A wait (instance method) can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep (static method) cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
 
 `sleep(n)` says “*I’m done with my timeslice, and please don’t give me another one for at least n milliseconds.*” The OS doesn’t even try to schedule the sleeping thread until requested time has passed.
 
