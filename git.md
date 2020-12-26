@@ -43,11 +43,12 @@ Files recorded as version snapshot.
 
 ### COMMANDS
 
-`pwd` = print working directory  
+`pwd` = print working directory
 `touch filename.ext` = creates a file called filename.ext  
 `cd` = change directory  
-`cd..` = up to main  
-`cd\` = up to main (C:\>)  
+`cd ..` = up to main  
+`cd \` = change to Home directory (in Windows C:\Users\CurrentUser)  
+`cd \` = change to base directory (in Windows Git Bash directory)  
 `dir` = list files (for Linux: ls)  
 `copy con` = new empty file (for Linux: touch)  
 `mkdir` = new empty folder  
@@ -122,7 +123,7 @@ A file can be in two states in the same time. For example, we can modify it (in 
 ### LOGS
 
 `git log` = list commits made until now (to limit displaying all commits we can use git log -5 (for example - in this case only the last 5 commits will be displayed).  
-For all, we can scroll screen up & down with J & K keys. <u>**To exit press q.**</u>
+For all, we can scroll screen up & down with **J & K** keys. <u>**To exit press q.**</u>
 
 `git log --online` = short log of commits  
 `git log –-stat` = detailed view  
