@@ -94,6 +94,12 @@
 
 - protocol pentru transferul documentelor markup (precum și a fișierelor care alcătuiesc pagini web (imagini, multimedia etc))
 
+# IaaS
+
+### INFRASTRUCTURE AS A SERVICE
+
+- infrastructura informatica care poate fi compusa din servere, unitați de sticare, rețele, resurse de calcul și analiza a datelor, sisteme de securitate informatica, centre de date care sunt utilizate și gestionate pe internet
+
 # IDE
 
 ### INTEGRATED DEVELOPMENT ENVIRONMENT
@@ -167,6 +173,18 @@
 
 - servicii de tip cloud computing constând într-o platformă ce permite clienților să dezvolte, ruleze și să gestioneze aplicații fără a fi nevoiți să construiască și să întrețină o infrastructură necesară
 
+# POJO
+
+### PLAIN OLD JAVA OBJECT
+
+- obiect simplu care nu se supune niciunea reguli restrictive impuse de specificațiile limbajalui Java
+- nu extinde (sau implementează) clase, interfețe sau adnotări tipice limbajului Java
+- Java Beans este un subset al POJO care impune regulile:
+    - trebuie să poată fi serializabile
+    - câmpuri private
+    - getteri și setteri
+    - constructor implicit
+
 # REGEX
 
 ### REGULAR EXPRESSIONS
@@ -200,6 +218,12 @@
 ### SEARCH ENGINE OPTIMISATION
 
 - optimizarea site-ului pentru motoare de căutare care are drept scop mărirea traficului calitativ al unui site
+
+# SOA
+
+### SERVICE ORIENTED ARCHITECTURE
+
+- tip de arhitectură software care presupune distribuirea funcționalității aplicației în unități mai mici, distincte - numite servicii - care pot fi distribuite într-o rețea și pot fi utilizate împreună pentru a crea aplicații destinate afacerilor
 
 # SOAP
 
