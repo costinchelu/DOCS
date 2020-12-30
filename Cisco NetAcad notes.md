@@ -1,4 +1,6 @@
-﻿![network](NetAcad%20pictures/network.png)
+![network](NetAcad%20pictures/network.png)
+
+![network](NetAcad%20pictures/OSI_Layers.png)
 
 #
 # Chapter 1 - Explore the Network
@@ -38,10 +40,10 @@ Other types of networks include:
 ![Network Quality of Service](netacad%20pictures/Network%20Quality%20of%20Service.png)
 ![Network Scalability](netacad%20pictures/Network%20Scalability.png)
 
-### Security Threats =
+### Security Threats
 ![Network Security](netacad%20pictures/Network%20Security.png)
 
-must take into account the environment, as well as the tools and requirements of the network. It must be able to secure data while still allowing for the quality of service that is expected of the network. Securing a network involves protocols, technologies, devices, tools, and techniques to secure data and mitigate threats. Threat vectors may be external or internal. The most common external threats to networks include:
+Must take into account the environment, as well as the tools and requirements of the network. It must be able to secure data while still allowing for the quality of service that is expected of the network. Securing a network involves protocols, technologies, devices, tools, and techniques to secure data and mitigate threats. Threat vectors may be external or internal. The most common external threats to networks include:
 
 - _Viruses, worms, and Trojan horses_ - malicious software and arbitrary code running on a user device
 - _Spyware and adware_ - software installed on a user device that secretly collects information about the user

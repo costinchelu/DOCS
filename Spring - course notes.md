@@ -1,4 +1,4 @@
-﻿www.spring.io  
+www.spring.io  
 https://start.spring.io
 
 - Java EE vs Spring?

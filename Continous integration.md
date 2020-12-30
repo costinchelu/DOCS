@@ -1,4 +1,4 @@
-﻿Integration means we  are getting all the work from different members of the dev teams into the software. When trying to get all parts at the final phase of the project, we could potentially get into trouble as different parts will not behave as it should.
+Integration means we  are getting all the work from different members of the dev teams into the software. When trying to get all parts at the final phase of the project, we could potentially get into trouble as different parts will not behave as it should.
   
 Instead of trying integration phase at the end of the project, we could try to spread it on the whole length of the development.
 
