@@ -1,4 +1,4 @@
-﻿# MAVEN
+# MAVEN
 
 - build tool
 - dependency management
