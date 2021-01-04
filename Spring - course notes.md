@@ -1,5 +1,22 @@
-www.spring.io  
-https://start.spring.io
+[www.spring.io  ](www.spring.io)  
+[https://start.spring.io](https://start.spring.io)
+
+The Spring is the lightweight open source framework which greatly simplifies the development of java based enterprise applications. Spring framework was created by Rod Johson and was described in his book “*Expert One-on-One: J2EE Design and Development*”. The Spring framework helps in developing loosely coupled and highly cohesive systems. Loose coupling is achieved by Spring’s Inversion of Control (IoC) feature and high cohesion is achieved by Spring’s Aspect oriented programming (AOP) feature.
+
+**Core container**: The core container is the heart of Spring framework and all other modules are built on top of it. It provides the dependency injection feature, also is known as inversion of control. This module contains the BeanFactory (an implementation of factory pattern) which creates and manages the life cycle of the various application objects (known as beans) defined in the Spring bean configuration file.
+
+**Application context**: This module provides various enterprise level services internationalisation (i18n), scheduling, JNDI access, email etc.
+
+**AOP**: This module helps in implementing the various cross cutting concerns in the application like logging, transaction management etc. These concerns are decoupled from the application code and are injected into the various point cuts through configuration file.
+
+**Spring web**: Spring framework helps in developing web based application by providing the Spring web module. This module is built on top of application context module and provides web oriented features.
+
+**Spring MVC**: Spring MVC module is built on top of Spring web module and helps in developing web application based on MVC design pattern.
+
+**Spring DAO**: Almost every enterprise application needs to interact with the database. Spring DAO module makes it easy to interact with database by providing an abstraction over low level JDBC tasks like creating a database connection, release it etc.
+
+**Spring ORM**: There exist a number of popular object-relational mapping tools like Hibernate, iBatis, JPA etc. Spring ORM module helps in integrating with these tools.
+
 
 - Java EE vs Spring?
 - Spring simplify Java EE
