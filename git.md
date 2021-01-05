@@ -98,7 +98,8 @@ Links from github can be pasted with shift+insert (in the linux command line)
 (local <<--link-->> github)
 
 `git remote show origin` = shows info about connection of the local repository with a remote repository on another computer
-`git push -u origin master` = to push files of the project to github server on master branch (first time pushing on remote)  
+`git push -u origin master` = to push files of the project to github server on master branch (first time pushing on remote)   
+`git remote set-url origin https://github.com/USERNAME/REPOSITORY.git` = modify address of current remote repository (origin)
 
 On creating a repo, github creates a branch named master. So when the local master branch is up to date with the origin/master branch on github server.
 
