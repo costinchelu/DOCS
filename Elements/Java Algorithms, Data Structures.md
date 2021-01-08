@@ -18,18 +18,24 @@ In computer science, big O notation is used to classify algorithms according to 
 
 ## Trees, graphs and ways to traverse graph
 
-- arrays and linked lists = linear data structures.  
-- graphs and trees = non-linear data structures  
+
+| LINEAR data structures | NON-LINEAR data structures |
+|------------------------|----------------------------|
+| arrays <br>linked lists  | graphs <br>trees           |
+
 
 - A graph is a system in which there are potentially multiple ways to get from an arbitrary point, A, to another arbitrary point, B
-- A graph is normally defined as a pair of sets (V,E). V is a set of arbitrary objects called vertices or nodes, and E is a set of pairs of vertices, which we call edges or (more rarely) arcs
+- A graph is normally defined as <u>a pair of sets (V,E)</u>. V is a set of arbitrary objects called <u>vertices or nodes</u>, and E is a set of pairs of vertices, which we call <u>edges or (more rarely) arcs</u>
 - To visit each node or vertex which is a connected component, tree-based algorithms are used. You can do this easily by iterating through all the vertices of the graph, performing the algorithm on each vertex that is still unvisited when examined
-- **Depth-first Search** (DFS) is an algorithm for searching a graph or tree data structure. The algorithm starts at the root (top) node of a tree and goes as far as it can down a given branch (path), and then backtracks until it finds an unexplored path, and then explores it. The algorithm does this until the entire graph has been explored. Many problems in computer science can be thought of in terms of graphs. 
-- DFS Algorithm applications
-  - analyzing networks, mapping routes
-  - scheduling, and finding spanning trees
+
+![Graph Search algorithms](images/BFS-DFS.png)
+
+  - **Depth-first Search** (DFS) is an algorithm for searching a graph or tree data structure. The algorithm starts at the root (top) node of a tree and goes as far as it can down a given branch (path), and then backtracks until it finds an unexplored path, and then explores it. The algorithm does this until the entire graph has been explored. Many problems in computer science can be thought of in terms of graphs. 
+  - *DFS Algorithm applications:*
+    - analyzing networks, mapping routes
+    - scheduling, and finding spanning trees
   
-```plaintext
+```java
 dfs(vertex v)
     visit(v);
     for each neighbor w of v
@@ -37,25 +43,33 @@ dfs(vertex v)
             dfs(w);
             add edge vw to tree T
 ```
-- **Breadth-first Search** (BFS) starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a ‘search key’), and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
-```plaintext
+  - **Breadth-first Search** (BFS) starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a ‘search key’), and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
+  
+```java
 create a queue Q 
 mark v as visited and put v into Q 
 while Q is non-empty 
     remove the head u of Q 
     mark and enqueue all (unvisited) neighbours of u
 ```
-- BFS Algorithm Applications
+- *BFS Algorithm Applications*:
     - To build index by search index
     - For GPS navigation
     - Path finding algorithms 
     - In Ford-Fulkerson algorithm to find maximum flow in a network 
     - Cycle detection in an undirected graph
     - In minimum spanning tree
+    
+BFS is slower, and hence, it requires more memory in comparison to DFS. DFS is very much recursive, and DFS minimizes the overhead. In fact, the space complexity is more critical compared to time complexity in BFS.  
+On the other hand, DFS has less space complexity, and it needs to store one path at a time from the root to the leaf or edge.  
+BFS follows FIFO policy and DFS comes with LIFO.
+
 
 ## Sorting algorithms
 
 **Insertion sort**
+
+![Insertion Sort](images/insertion_sort.png)
 
 The insertion-sort algorithm sorts a list of values by repeatedly inserting a new element into a sorted sublist until the whole list is sorted.
 
@@ -68,7 +82,7 @@ public class InsertionSort {
             int currentElement = list[i];
             int k;
             for (k = i − 1; k >= 0 && list[k] > currentElement; k−−) {
-            list[k + 1] = list[k];
+                list[k + 1] = list[k];
             }
 
 // Insert the current element into list[k + 1]
@@ -79,6 +93,9 @@ public class InsertionSort {
 ```
 **Bubble sort**
 
+![Insertion Sort](images/bubble-sort.png)
+
+
 A bubble sort sorts the array in multiple passes. Each pass successively swaps the neighboring elements if the elements are not in order.
 
 ```java
@@ -87,11 +104,11 @@ public class BubbleSort {
         boolean needNextPass = true;
 
         for (int k = 1; k < list.length && needNextPass; k++) {
-// Array may be sorted and next pass not needed
+            // Array may be sorted and next pass not needed
             needNextPass = false;
             for (int i = 0; i < list.length - k; i++) {
                 if (list[i] > list[i + 1]) {
-// Swap list[i] with list[i + 1]
+                    // Swap list[i] with list[i + 1]
                     int temp = list[i];
                     list[i] = list[i + 1];
                     list[i + 1] = temp;
@@ -112,6 +129,9 @@ public class BubbleSort {
 }
 ```
 **Selection Sort**
+
+![Selection Sort](images/selection-sort.jpg)
+
 Selection sort repeatedly selects the smallest number and swaps it with the first number in the list.
 
 ```java
@@ -141,7 +161,11 @@ public class SelectionSort {
 
 **Merge Sort**
 
-The merge-sort algorithm can be described recursively as follows: The algorithm divides the array into two halves and applies a merge sort on each half recursively. After the two halves are sorted, the algorithm then merges them.
+![Merge Sort](images/merge-sort.png)
+
+The merge-sort algorithm can be described recursively as follows: 
+- The algorithm divides the array into two halves and applies a merge sort on each half recursively. 
+- After the two halves are sorted, the algorithm then merges them.
 
 ```java
 public class MergeSort {
@@ -196,9 +220,13 @@ public class MergeSort {
 
 **Quick Sort**
 
-A quick sort works as follows: The algorithm selects an element, called the pivot, in the array. It divides the array into two parts so all the elements in the first part are less than or equal to the pivot, and all the elements in the second part are greater than the pivot. The quick-sort algorithm is then recursively applied to the first part and then the second part.
-
 ![Quick Sort](images/QuickSort.png)
+
+A quick sort works as follows: 
+- The algorithm selects an element, called the pivot, in the array. 
+- It divides the array into two parts so all the elements in the first part are less than or equal to the pivot, and all the elements in the second part are greater than the pivot. 
+- The quick-sort algorithm is then recursively applied to the first part and then the second part.
+
 
 ```java
 public class QuickSort {
@@ -428,11 +456,10 @@ class GFG {
     // The function is not tail recursive because the value  
     // returned by fact(n-1) is used in fact(n) and call to fact(n-1) 
     // is not the last thing done by fact(n) 
-    static int fact(int n) 
-    { 
-        if (n == 0) 
+    static int fact(int n) { 
+        if (n == 0) {
             return 1; 
-      
+        }
         return n * fact(n - 1); 
     } 
       
@@ -449,9 +476,9 @@ A recursive function is **tail recursive** when recursive call is the last thing
 class GFG { 
       
     static int factTR(int n, int a) { 
-        if (n == 0)  
+        if (n == 0) { 
             return a; 
-      
+        }
         return factTR(n - 1, n * a); 
     } 
       
@@ -466,7 +493,8 @@ class GFG {
 }
 ```
 
-**Mutual recursion** is a variation recursion. Two functions are called mutually recursive if the first function makes a recursive call to the second function and the second function, in turn, calls the first one.
+**Mutual recursion** is a variation recursion.  
+Two functions are called mutually recursive if the first function makes a recursive call to the second function and the second function, in turn, calls the first one.
 
 ## Dynamic programming
 
