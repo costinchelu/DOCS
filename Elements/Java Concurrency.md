@@ -1,3 +1,5 @@
+![Lifecycle of a thread](images/Life_cycle_of_a_Thread_in_Java.jpg)
+
 ## Thread
 
 A thread in Java is a lightweight process that runs within another process or thread. It is an independent path of execution in an application. JVM gives
@@ -173,13 +175,39 @@ public class SendReceive {
 
 ## Difference between sleep() and wait()
 
-A wait (instance method) can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep (static method) cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
+- A wait (instance method) can be "woken up" by another thread calling notify() on the monitor which is being waited on whereas a sleep (static method) cannot. 
+- A wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
 
 `sleep(n)` says “*I’m done with my timeslice, and please don’t give me another one for at least n milliseconds.*” The OS doesn’t even try to schedule the sleeping thread until requested time has passed.
 
 `yield()` says “*I’m done with my timeslice, but I still have work to do.*” The OS is free to immediately give the thread another timeslice, or to give some other thread or process the CPU the yielding thread just gave up.
 
 `wait()` says “*I’m done with my timeslice. Don’t give me another timeslice until someone calls notify().*” As with sleep(), the OS won’t even try to schedule your task unless someone calls notify() (or one of a few other wakeup scenarios occurs).
+
+## Difference between wait() and join()
+
+The `wait()` and `join()` methods are used to pause the current thread. The w`ait()` is used in with `notify()` and `notifyAll()` methods, but `join()` is used to wait until one thread finishes its execution.
+
+`wait()` is mainly used for shared resources, a thread notifies other waiting thread when a resource becomes free. 
+
+On the other hand `join()` is used for waiting a thread to die.
+
+**Similarities between wait() and join()**
+
+- Both are used to pause the current thread.
+- Both can be interrupted by calling interrupt() method.
+- Both are a non-static method.
+- Both are overloaded. 
+- Both can accept a timeout parameter (0 default).
+
+**Difference between wait() and join() method**
+
+- Are present different packages: 
+    - wait() is declared in java.lang.Object class 
+    - join() is declared in java.lang.Thread class.
+- wait() is used for inter-thread communication while the join() is used for adding sequencing between multiple threads - one thread starts execution after first thread execution finished.
+- We can start a waiting thread (went into this state by calling wait()) by using notify() and notifyAll() method but we can not break the waiting imposed by join without unless or interruption the thread on which join is called has execution finished.
+- wait() must be called from synchronized context i.e. synchronized block or method otherwise it will throw `IllegalMonitorStateException` but On the other hand, we can call join() method with and without synchronized context in Java.
 
 ## Atomic operations
 

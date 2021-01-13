@@ -134,8 +134,7 @@ class NameCompare implements Comparator<Movie> {
 }
 
 
-class Main
-{
+class Main {
     public static void main(String[] args) {
         
         ArrayList<Movie> list = new ArrayList<Movie>();

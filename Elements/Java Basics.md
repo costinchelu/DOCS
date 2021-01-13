@@ -205,6 +205,8 @@ We cannot use both super() and this() in the same constructor.
 
 ## Mutable vs immutable object or class 
 
+Immutable class means that once an object is created, we cannot change its content.
+
 | Mutable                                  | Immutable                                |
 |------------------------------------------|------------------------------------------|
 | Fields can be changed after the object creation | Fields cannot be changed after object creation. Immutability makes it easier to parallelize your program as there are no conflicts among objects. |
@@ -216,11 +218,48 @@ We cannot use both super() and this() in the same constructor.
 ## Immutable class creation
 
 - add final modifier (to prevent extension)
-- fields are private
-- fields are final (to assign value only once)
+- fields are private final (to assign value only once)
 - no setter methods for member variables
 - use deep copy to initialize all the fields by a constructor
-- clone() method should return a copy of object instead of  the actual object reference
+- clone() method should return a copy of object instead of the actual object reference
+
+EXAMPLE:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+ 
+// An immutable class
+public final class Student {
+    private final String name;
+    private final int regNo;
+    private final Map<String, String> metadata;
+ 
+    public Student(String name, int regNo, Map<String, String> metadata) {
+        this.name = name;
+        this.regNo = regNo;
+        Map<String, String> tempMap = new HashMap<>();
+        for (Map.Entry<String, String> entry : metadata.entrySet()) {
+            tempMap.put(entry.getKey(), entry.getValue());
+        }
+        this.metadata = tempMap;
+    }
+ 
+    public String getName() { return name; }
+ 
+    public int getRegNo() { return regNo; }
+ 
+    public Map<String, String> getMetadata() {
+        Map<String, String> tempMap = new HashMap<>();
+        for (Map.Entry<String, String> entry : this.metadata.entrySet()) {
+            tempMap.put(entry.getKey(), entry.getValue());
+        }
+        return tempMap;
+    }
+}
+```
+
+
 
 
 ## StringBuffer vs StringBuilder vs String
