@@ -6,6 +6,30 @@ A thread in Java is a lightweight process that runs within another process or th
 each thread its own method-call stack.  
 When we start JVM, Java starts one thread. This thread calls the main method of the class passed in argument to java call.
 
+**MULTITHREADING** = CPU executes multiple processes or threads concurrently
+
+**BENEFITS:**
+- responsive applications
+- use more than one processor core
+- improved performance
+
+## Thread vs Process
+
+**PROCESS** = an instance of program execution (the OS assigns distinct registers, stack and heap memory to every process)
+every process have a PID (process identifier) and memory allocated
+
+**THREAD** = is a unit of execution within a given process (so a process may have several threads)
+each thread in a process shares the memory and resources and this is why programmers have to deal with concurrent programming and multithreading
+
+The typical difference between PROCESSES and THREADS (of the same process) run in a shared memory space,
+while processes run in separate memory spaces.
+
+**STACK** -> local variables, method arguments, method calls (small, fast)  
+**HEAP** -> objects (live as long as are referenced from somewhere in the application) (large, slower)
+
+Every thread has its own stack memory but all threads share the heap memory (shared memory space).  
+So every local variable inside a thread are not a concern because threads have their own stack.
+
 
 ## Thread vs Runnable, run() vs start()
 
@@ -35,7 +59,7 @@ When a program calls the `start()` method, a new thread <u>is created</u> and th
 - implementation of Runnable is using composition (prefered) - we are implementing an interface which gives a cleaner separation between our code and the implementation of threads
 - Thread class offers us some other methods (which we may need)
 
-## Synchronization of java blocks and methods
+## Synchronization of Java Blocks and Methods
 
 Threads communicate primarily by sharing access to fields and the objects reference fields refer to. This form of communication is extremely efficient, but makes two kinds of errors possible: thread interference and memory consistency errors.
 
@@ -45,7 +69,7 @@ If we only need to execute some subsequent lines of code not all lines (instruct
 
 ```java
 synchronized(this) {
-    
+    // object locking
 }
 ```
 
@@ -175,8 +199,11 @@ public class SendReceive {
 
 ## Difference between sleep() and wait()
 
-- A wait (instance method) can be "woken up" by another thread calling notify() on the monitor which is being waited on whereas a sleep (static method) cannot. 
-- A wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
+- you call wait() on the Object while on the other hand you call slee()p on the Thread itself
+- wait can be interrupted (this is why we need the InterruptedException) while on the other hand sleep can not
+- wait (and notify) must happen in a synchronized block on the monitor object whereas sleep does not
+- sleep operation does not release the locks it holds while on the other hand wait releases the lock on the object that wait() is called on
+
 
 `sleep(n)` says “*I’m done with my timeslice, and please don’t give me another one for at least n milliseconds.*” The OS doesn’t even try to schedule the sleeping thread until requested time has passed.
 
@@ -186,7 +213,7 @@ public class SendReceive {
 
 ## Difference between wait() and join()
 
-The `wait()` and `join()` methods are used to pause the current thread. The w`ait()` is used in with `notify()` and `notifyAll()` methods, but `join()` is used to wait until one thread finishes its execution.
+The `wait()` and `join()` methods are used to pause the current thread. The `wait()` is used in with `notify()` and `notifyAll()` methods, but `join()` is used to wait until one thread finishes its execution.
 
 `wait()` is mainly used for shared resources, a thread notifies other waiting thread when a resource becomes free. 
 
@@ -208,6 +235,12 @@ On the other hand `join()` is used for waiting a thread to die.
 - wait() is used for inter-thread communication while the join() is used for adding sequencing between multiple threads - one thread starts execution after first thread execution finished.
 - We can start a waiting thread (went into this state by calling wait()) by using notify() and notifyAll() method but we can not break the waiting imposed by join without unless or interruption the thread on which join is called has execution finished.
 - wait() must be called from synchronized context i.e. synchronized block or method otherwise it will throw `IllegalMonitorStateException` but On the other hand, we can call join() method with and without synchronized context in Java.
+
+## Differences between lock and synchronized block
+
+- synchronized are unfair by default but in case of locks, we can make them fair
+- we can check if a given lock is held or not
+- we can get a list of threads that are waiting for the given lock
 
 ## Atomic operations
 

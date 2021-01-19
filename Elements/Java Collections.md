@@ -10,12 +10,12 @@ The Java Collections Framework supports two types of containers:
 The Java Collections Framework:
 - SETS store a group of nonduplicate elements.
 - LISTS store an ordered collection of elements.
-- STACKS store objects that are processed in a last-in, first-out fashion.
-- QUEUES store objects that are processed in a first-in, first-out fashion.
-- PRIORITYQueues store objects that are processed in the order of their priorities.
+- STACK store objects that are processed in a last-in, first-out fashion.
+- QUEUE store objects that are processed in a first-in, first-out fashion.
+- PRIORITYQUEUE store objects that are processed in the order of their priorities.
 
 
-## Interfaces extending Collection. Is Map part of Collection interface
+## Interfaces extending Collection. Is Map part of Collection interface?
 
 ![Collection interface](images/collections.png)
 

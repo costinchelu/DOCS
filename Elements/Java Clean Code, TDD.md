@@ -39,11 +39,11 @@ Lean interfaces minimize dependencies on unused members and reduce code coupling
 
 **Dependency Inversion Principle** = High level modules should not depend on low level modules; both should depend on abstractions (interfaces, abstract classes). Abstractions should not depend on details. Details should depend upon abstraction.
 
-Dependency injection = a technique that allows the creation of dependent objects outside of a class and provides those objects to a class.
+**Dependency injection** = a technique that allows the creation of dependent objects outside of a class and provides those objects to a class.
 
-Inversion of control = design principle in which the control of object creation, configuration, and lifecycle is passed to a container or framework.
+**Inversion of control** = design principle in which the control of object creation, configuration, and lifecycle is passed to a container or framework.
  
-DIP, DI, IoC = the most effective ways to eliminate code coupling and kkep systems easy to maintain and evolve.
+**DIP, DI, IoC** = the most effective ways to eliminate code coupling and keep systems easy to maintain and evolve.
  
 ## Clean code
 

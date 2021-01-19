@@ -23,6 +23,14 @@ But an instance method can call both instance variables and static variables.
 **volatile** = another way (like synchronized, atomic wrapper) of making class thread safe (method or class instance can be used by multiple threads at the same time without any problem). Volatile variables have the visibility features of synchronized but not the atomicity features. The values of volatile variable will never be cached and all writes and reads will be done to and from the main memory. 
 
 
+## Difference between final, finally and finalize
+
+| final                                    | finally                                  | finalize                                 |
+|------------------------------------------|------------------------------------------|------------------------------------------|
+| Final is used to apply restrictions on class, method and variable. Final class can't be inherited, final method can't be overridden and final variable value can't be changed. | Finally is used to place important code, it will be executed whether exception is handled or not. | Finalize is used to perform clean up processing just before object is garbage collected. |
+| Final is a keyword.                      | Finally is a block.                      | Finalize is a method.                    |
+
+
 ## Default values for data types
 
 **INSTANCE VARIABLES:**  
@@ -42,137 +50,17 @@ But an instance method can call both instance variables and static variables.
 **LOCAL VARIABLES**   ->   <u>Java does not initialize local variables with any default value</u> (will be null by default)
 
 
-## Reflection, introspection
-
-The name reflection is used to modify (describe) code which is able to inspect other code in the same system (or itself).
-
-> The ability to inspect the code in the system and see object types is not reflection, but rather Type Introspection. Reflection is then the ability to make modifications at runtime by making use of introspection. The distinction is necessary here as some languages support introspection, but do not support reflection. One such example is C++.
-
-For example, say you have an object of an unknown type in Java, and you would like to call a 'doSomething' method on it if one exists. Java's static typing system isn't really designed to support this unless the object conforms to a known interface, but using reflection, your code can look at the object and find out if it has a method called 'doSomething' and then call it if you want to.
-
-So, to give you a code example of this in Java (imagine the object in question is foo) :
-
-```java
-Method method = foo.getClass().getMethod("doSomething", null); // introspect
-method.invoke(foo, null); // reflection
-```
-
-One very common use case in Java is the usage with annotations. JUnit 4, for example, will use reflection to look through your classes for methods tagged with the **@Test** annotation, and will then call them when running the unit test.
-
-Another example:
-
-```java
-// A simple Java program to demonstrate the use of reflection 
-import java.lang.reflect.Method; 
-import java.lang.reflect.Field; 
-import java.lang.reflect.Constructor; 
-
-// class whose object is to be created 
-class Test 
-{ 
-	// creating a private field 
-	private String s; 
-
-	// creating a public constructor 
-	public Test() { s = "GeeksforGeeks"; } 
-
-	// Creating a public method with no arguments 
-	public void method1() { 
-		System.out.println("The string is " + s); 
-	} 
-
-	// Creating a public method with int as argument 
-	public void method2(int n) { 
-		System.out.println("The number is " + n); 
-	} 
-
-	// creating a private method 
-	private void method3() { 
-		System.out.println("Private method invoked"); 
-	} 
-} 
-
-class Demo 
-{ 
-	public static void main(String args[]) throws Exception 
-	{ 
-		// Creating object whose property is to be checked 
-		Test obj = new Test(); 
-
-		// Creating class object from the object using 
-		// getclass method 
-		Class cls = obj.getClass(); 
-		System.out.println("The name of class is " + cls.getName()); 
-
-		// Getting the constructor of the class through the 
-		// object of the class 
-		Constructor constructor = cls.getConstructor(); 
-		System.out.println("The name of constructor is " + constructor.getName()); 
-
-		System.out.println("The public methods of class are : "); 
-
-		// Getting methods of the class through the object 
-		// of the class by using getMethods 
-		Method[] methods = cls.getMethods(); 
-
-		// Printing method names 
-		for (Method method:methods) 
-			System.out.println(method.getName()); 
-
-		// creates object of desired method by providing the 
-		// method name and parameter class as arguments to 
-		// the getDeclaredMethod 
-		Method methodcall1 = cls.getDeclaredMethod("method2", int.class); 
-
-		// invokes the method at runtime 
-		methodcall1.invoke(obj, 19); 
-
-		// creates object of the desired field by providing 
-		// the name of field as argument to the 
-		// getDeclaredField method 
-		Field field = cls.getDeclaredField("s"); 
-
-		// allows the object to access the field irrespective 
-		// of the access specifier used with the field 
-		field.setAccessible(true); 
-
-		// takes object and the new value to be assigned 
-		// to the field as arguments 
-		field.set(obj, "JAVA"); 
-
-		// Creates object of desired method by providing the 
-		// method name as argument to the getDeclaredMethod 
-		Method methodcall2 = cls.getDeclaredMethod("method1"); 
-
-		// invokes the method at runtime 
-		methodcall2.invoke(obj); 
-
-		// Creates object of the desired method by providing 
-		// the name of method as argument to the 
-		// getDeclaredMethod method 
-		Method methodcall3 = cls.getDeclaredMethod("method3"); 
-
-		// allows the object to access the method irrespective 
-		// of the access specifier used with the method 
-		methodcall3.setAccessible(true); 
-
-		// invokes the method at runtime 
-		methodcall3.invoke(obj); 
-	} 
-}
-```
-
 ## Serialization
 
 OBJECT DATA ->serialization -> STREAM OF BYTES ->deserialization -> OBJECT DATA
 
-When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes (byte array) which represents the class, version and internal state of the object.  
+When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes (byte array) which represents the class, version and internal state of the object.
+
 Purpose:
 - communication
 - persistence
 - caching (improve object creation performance)
 - cross JVM synchronization
-
 
 
 ## this' vs 'super'
@@ -217,9 +105,9 @@ Immutable class means that once an object is created, we cannot change its conte
 
 ## Immutable class creation
 
-- add final modifier (to prevent extension)
-- fields are private final (to assign value only once)
-- no setter methods for member variables
+- class has <u>final modifier</u> (to prevent extension)
+- fields are <u>private final</u> (to assign value only once)
+- <u>no setter</u> methods for member variables
 - use deep copy to initialize all the fields by a constructor
 - clone() method should return a copy of object instead of the actual object reference
 
@@ -258,8 +146,6 @@ public final class Student {
     }
 }
 ```
-
-
 
 
 ## StringBuffer vs StringBuilder vs String
@@ -411,3 +297,124 @@ There are two cases for deciding eligibility of objects for Garbage
 Collection:
 1. An Object/instance that cannot be reached by a live thread.
 2. A set of circularly referenced instances that cannot be reached by any other instance outside that set.
+
+
+## Reflection, introspection
+
+The name reflection is used to modify (describe) code which is able to inspect other code in the same system (or itself).
+
+> The ability to inspect the code in the system and see object types is not reflection, but rather Type Introspection. Reflection is then the ability to make modifications at runtime by making use of introspection. The distinction is necessary here as some languages support introspection, but do not support reflection. One such example is C++.
+
+For example, say you have an object of an unknown type in Java, and you would like to call a 'doSomething' method on it if one exists. Java's static typing system isn't really designed to support this unless the object conforms to a known interface, but using reflection, your code can look at the object and find out if it has a method called 'doSomething' and then call it if you want to.
+
+So, to give you a code example of this in Java (imagine the object in question is foo) :
+
+```java
+Method method = foo.getClass().getMethod("doSomething", null); // introspect
+method.invoke(foo, null); // reflection
+```
+
+One very common use case in Java is the usage with annotations. JUnit 4, for example, will use reflection to look through your classes for methods tagged with the **@Test** annotation, and will then call them when running the unit test.
+
+Another example:
+
+```java
+// A simple Java program to demonstrate the use of reflection 
+import java.lang.reflect.Method; 
+import java.lang.reflect.Field; 
+import java.lang.reflect.Constructor; 
+
+// class whose object is to be created 
+class Test 
+{ 
+	// creating a private field 
+	private String s; 
+
+	// creating a public constructor 
+	public Test() { s = "GeeksforGeeks"; } 
+
+	// Creating a public method with no arguments 
+	public void method1() { 
+		System.out.println("The string is " + s); 
+	} 
+
+	// Creating a public method with int as argument 
+	public void method2(int n) { 
+		System.out.println("The number is " + n); 
+	} 
+
+	// creating a private method 
+	private void method3() { 
+		System.out.println("Private method invoked"); 
+	} 
+} 
+
+class Demo 
+{ 
+	public static void main(String args[]) throws Exception 
+	{ 
+		// Creating object whose property is to be checked 
+		Test obj = new Test(); 
+
+		// Creating class object from the object using 
+		// getclass method 
+		Class cls = obj.getClass(); 
+		System.out.println("The name of class is " + cls.getName()); 
+
+		// Getting the constructor of the class through the 
+		// object of the class 
+		Constructor constructor = cls.getConstructor(); 
+		System.out.println("The name of constructor is " + constructor.getName()); 
+
+		System.out.println("The public methods of class are : "); 
+
+		// Getting methods of the class through the object 
+		// of the class by using getMethods 
+		Method[] methods = cls.getMethods(); 
+
+		// Printing method names 
+		for (Method method:methods) 
+			System.out.println(method.getName()); 
+
+		// creates object of desired method by providing the 
+		// method name and parameter class as arguments to 
+		// the getDeclaredMethod 
+		Method methodcall1 = cls.getDeclaredMethod("method2", int.class); 
+
+		// invokes the method at runtime 
+		methodcall1.invoke(obj, 19); 
+
+		// creates object of the desired field by providing 
+		// the name of field as argument to the 
+		// getDeclaredField method 
+		Field field = cls.getDeclaredField("s"); 
+
+		// allows the object to access the field irrespective 
+		// of the access specifier used with the field 
+		field.setAccessible(true); 
+
+		// takes object and the new value to be assigned 
+		// to the field as arguments 
+		field.set(obj, "JAVA"); 
+
+		// Creates object of desired method by providing the 
+		// method name as argument to the getDeclaredMethod 
+		Method methodcall2 = cls.getDeclaredMethod("method1"); 
+
+		// invokes the method at runtime 
+		methodcall2.invoke(obj); 
+
+		// Creates object of the desired method by providing 
+		// the name of method as argument to the 
+		// getDeclaredMethod method 
+		Method methodcall3 = cls.getDeclaredMethod("method3"); 
+
+		// allows the object to access the method irrespective 
+		// of the access specifier used with the method 
+		methodcall3.setAccessible(true); 
+
+		// invokes the method at runtime 
+		methodcall3.invoke(obj); 
+	} 
+}
+```

@@ -120,12 +120,3 @@ Marker is an *empty interface* (no field or methods).
 Examples: Serializable, Clonnable and Remote interface. All these interfaces are empty interfaces.  
 
 Marker interfaces can be replaced by annotations (they convey metadata about the class to its consumers without creating a sepparate type for it).
-
-
-## Make an immutable class
-
--> add final modifier to class  
--> all fields private final  
--> no setters  
--> use deep copy to initialize all fields by a constructor  
--> clone() - return a copy of the object (instead of the actual object reference)

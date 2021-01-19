@@ -20,6 +20,15 @@ If we override equals(), we must also override hashCode() or else, if we create 
 - For any non-null object x, x.equals(null)==false
 
 
+## Differences between == and .equals() method
+
+In general both equals() and “==” operator are used to compare objects to check equality but:
+
+- Main difference between .equals() method and == operator is that one is method and other is operator.
+- We can use **== operators for reference comparison** (address comparison) and **.equals() method for content comparison**. In simple words, == checks if both objects point to the same memory location whereas .equals() evaluates to the comparison of values in the objects.
+    - If a class does not override the equals method, then by default it uses equals(Object o) method of the closest parent class that has overridden this method. 
+
+
 ## Object cloning
 
 Object.clone() method is used for creating an exact copy of objects in Java. It acts like a copy constructor. It creates and returns a copy of the object, with the same class and with all the fields having same values of the original object. The return type is an Object so it has to explicitly be cast to actual type.

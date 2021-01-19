@@ -1,4 +1,4 @@
-Benefits and risks of using Hibernate (hibernate)
+﻿Benefits and risks of using Hibernate (hibernate)
 
 What is a SessionFactory? Is it a thread-safe object?  (hibernate)
 
