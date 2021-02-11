@@ -11,14 +11,14 @@
 - unit test reports, including coverage
 - integration test reports
 
-- Maven is a collection of plugins (jar files) downloaded when needed from a cental repository to a local cache
+- Maven is a collection of plugins (jar files) downloaded when needed from a central repository to a local cache
 
 ### TERMIONOLOGY
 
 - **ARCHETYPES** = templates -> convenient way to generate a new project
 - **SNAPSHOT** = jar, war files are subjected to changes
 - **MAVEN COORDINATE** = GroupId + ArtifactId + Version  
-     - groupId = name of the group fo project (ex. ro.costin)
+     - groupId = name of the group for project (ex. ro.costin)
      - artifactId = name of the project (ex. mavenproject)
      - version = project's version. Keeping SNAPSHOT in name means it is not for release yet
      - package = java package name
@@ -131,7 +131,7 @@ Example:
 `clean test` = will run the clean, resources, compile, resources for the test, compile tests, run tests. <u>Clean phase will not run if not specified because it resides in a different lifecycle (clean lifecycle)</u> than test (which belongs to default lifecycle).  So that will run every phase in the default order until (and including) test phase (with the test goal).  
 `clean install` = will run same phases and also package (jar or war) and install in the local repository (User_dir\.m2\repository).  
 
-#### Customising Lifecycles
+#### Customizing Lifecycles
 
 ```xml
           <source>11</source>
@@ -160,7 +160,7 @@ For the compiler-plugin:
     </plugin>
 ```
 
-After, we want to set <packaging>jar</packaging>. Using "single" goal of the *assembly plugin* we can package into our jar, all of dependencies, the resulting target being 2 jar files, one with dependecies and other without:  
+After, we want to set <packaging>jar</packaging>. Using "single" goal of the *assembly plugin* we can package into our jar, all of dependencies, the resulting target being 2 jar files, one with dependencies and other without:  
 `mvn clean package assembly:single`
 
 We can run the jar file from command line by getting to the file location (or including relative path) and:  
@@ -184,7 +184,7 @@ to create an executable jar in the package phase within the single goal. Also we
 
 To show the EFFECTIVE POM of the project, right click on project name >> Maven... >> Show Effective POM.
 
-When Maven packages the project it creates 2 jars (one with dependencies and one without). We can eliminate the jar without dependencies by copiing from the effective pom the plugin section for maven-jar-plugin into the pom.xml. After that, we will remove the goals and set phase value to "none".
+When Maven packages the project it creates 2 jars (one with dependencies and one without). We can eliminate the jar without dependencies by copying from the effective pom the plugin section for maven-jar-plugin into the pom.xml. After that, we will remove the goals and set phase value to "none".
 
 ```xml
     <plugin>
@@ -204,11 +204,11 @@ When Maven packages the project it creates 2 jars (one with dependencies and one
 
 #### Maven Dependencies
 
-For webapps we need to configure a Tomcat Server from `Edit Configurations` (Run/Debug Configurations) then `+` (add). If we get *The origin server did not find a current representation for the target resource or is not willing to disclose that one exists* error we need to go to `Deployment tab in Run/Debug Configurations` and add an Artifact. The page will be loaded in the default browser.
+For web apps we need to configure a Tomcat Server from `Edit Configurations` (Run/Debug Configurations) then `+` (add). If we get *The origin server did not find a current representation for the target resource or is not willing to disclose that one exists* error we need to go to `Deployment tab in Run/Debug Configurations` and add an Artifact. The page will be loaded in the default browser.
 
-Every time we make a new change we need to repackage project: `mvn clean package` to see the changes in opur browser.
+Every time we make a new change we need to repackage project: `mvn clean package` to see the changes in our browser.
 
-Transitive dependenies = some of our main dependecies need other dependencies. So there is a dependency hierarchy.
+Transitive dependencies = some of our main dependencies need other dependencies. So there is a dependency hierarchy.
 
 ![Transitive Dependencies](images/Maven/transitive_dep.png)
 
@@ -224,7 +224,7 @@ Example of a dependency element:
 
 Scopes for dependencies:
 
-![Dependecies scope](images/Maven/scope.png)
+![Dependencies scope](images/Maven/scope.png)
 
 Compile scope is the default scope. We don't need to set it to a dependency. For example test scope will not be packaged and deployed with our war file.
 
@@ -237,7 +237,7 @@ We also have an optional scope `<optional>true</optional>`.
 Errors that come when reading from the local Maven repo:  
 `C:\Users\Username\.m2\repository` is the location of the local Maven repository. Sometimes it could get corrupted.
 
-To resove this problem, we  could delete the repository folder. When we will try to package our project again, Maven will download all our dependencies from Maven Central.
+To resolve this problem, we  could delete the repository folder. When we will try to package our project again, Maven will download all our dependencies from Maven Central.
 
 #### Command Line
 
@@ -247,7 +247,30 @@ Open the project's folder in command prompt.
 
 To start up Tomcat from cmd:  
 `"%CATALINA_HOME%/bin/startup.bat"`  
-All .war files deployed in the webapps folder of Tomcat folder will be accessible from the browser.
+All .war files deployed in the web apps folder of Tomcat folder will be accessible from the browser.
+
+--------------------------------------
+# SIMPLEST MAVEN - JAVA PROJECTS
+--------------------------------------
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ro.ls</groupId>
+    <artifactId>VanillaMaven</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+    
+</project>
+```
 
 --------------------------------------
 # REGULAR JAVA PROJECTS
@@ -273,8 +296,8 @@ In properties tag, compiler version is 1.8. But for newer JDKs we will modify th
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>

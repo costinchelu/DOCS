@@ -2,9 +2,11 @@
 
 Spring IoC is the mechanism to achieve loose-coupling between Objects dependencies. 
 
-To achieve loose coupling and dynamic binding of the objects at runtime, objects dependencies are injected by other assembler objects. Spring IoC container injects dependencies into an object and make it ready for our use.
+To achieve loose coupling and dynamic binding of the objects at runtime, objects dependencies are injected by other assembler objects.  
 
-Spring IoC container classes are part of `org.springframework.beans` and `org.springframework.context` packages. Spring IoC container provides us different ways to decouple the object dependencies.
+Spring IoC container injects dependencies into an object and make it ready for our use.  
+Spring IoC container classes are part of `org.springframework.beans` and `org.springframework.context` packages.  
+Spring IoC container provides us different ways to decouple the object dependencies.
 
 ## What is Spring configuration file? How does it look like?
 
@@ -81,11 +83,13 @@ public static void main(String[] args) {
 
 ## Out of the box bean scopes (singleton, prototype, request, session, global session)
 
-There are five scopes defined for Spring Beans.
+Scopes defined for Spring Beans:
 
 - **singleton** – Only one instance of the bean will be created for each container. This is the default scope for the spring beans. While using this scope, make sure bean doesn’t have shared instance variables otherwise it might lead to data inconsistency issues.
 
 - **prototype** – A new instance will be created every time the bean is requested.
+
+Web-Aware ApplicationContext bean scopes:
 
 - **request** – This is same as prototype scope, however it’s meant to be used for web applications. A new instance of the bean will be created for each HTTP request.
 
@@ -95,22 +99,9 @@ There are five scopes defined for Spring Beans.
 
 Spring Framework is extendable and we can create our own scopes too. However, most of the times we are good with the scopes provided by the framework.
 
-What are the main bean scopes in web container
-
-## What are the types of Dependency Injection Spring supports
-
-- **Constructor** based injection
-- **Setter** based injection
-- **Attribute** (property) based injection
-
-As per Spring documentation:
-- We should use constructor injection for mandatory dependencies
-- Setter-based injections should be used for dependencies that are optional in nature
-- Spring uses reflection for injecting the field-injected dependencies. So, field-based injection is a costlier approach and we should avoid using it
-
 ## Autowiring. Types of autowiring.
 
-The Spring framework enables automatic dependency injection. In other words, by declaring all the bean dependencies in a Spring configuration file, Spring container can autowire relationships between collaborating beans. This is called Spring bean autowiring.
+The Spring framework enables automatic dependency injection. In other words, by declaring all the bean dependencies in a Spring configuration file, Spring container can **autowire relationships between collaborating beans**. This is called Spring bean autowiring.
 
 After enabling annotation injection, we can use **autowiring on properties, setters, and constructors**.
 
@@ -121,6 +112,19 @@ To enable **@Autowired** annotation we can enable annotation-driven injection by
 @ComponentScan("com.example.autowiringdemo")
 public class AppConfig {}
 ```
+
+## What are the types of Dependency Injection Spring supports
+
+- **Attribute** (property) based injection
+- **Constructor** based injection
+- **Setter** based injection
+
+As per Spring documentation:
+- We should use constructor injection for mandatory dependencies
+- We should use setter-based injections for optional dependencies
+- Field-based injection is a costlier approach and we should avoid using it (Spring uses reflection for field based injection)
+
+
 
 
 ## What are inner beans.

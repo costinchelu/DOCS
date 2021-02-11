@@ -148,6 +148,12 @@
 - standard pentru securizarea autorizațiilor pentru acces
 - utilizat în mod frecvent împreună cu servicii gen Facebook, Google etc
 
+# OLAP
+
+### ONLINE ANALYTICAL PROCESSING
+
+- instrumente pentru crearea de rapoarte și analize care permite reprezentări multidimensionale (cuburi, hipercuburi) precum și analize rapide și interactive cu ajutorul unor operații specifice (ex: roll.up, drill.down, dice, slice etc)
+
 # OOP
 
 ### OBJECT ORIENTED PROGRAMMING

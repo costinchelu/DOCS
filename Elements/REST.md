@@ -9,9 +9,10 @@ For example, when a developer calls Instagram API to fetch a specific user (the 
 The representation of the state can be in a JSON format, and probably for most APIs this is indeed the case. It can also be in XML or HTML format.
 
 What the server does when you, the client, call one of its APIs depends on 2 things that you need to provide to the server:
-- An identifier for the resource you are interested in. This is the URL for the resource, also known as the endpoint. In fact, URL stands for Uniform Resource Locator.
-T- he operation you want the server to perform on that resource, in the form of an HTTP method, or verb. The common HTTP methods are GET, POST, PUT, and DELETE.
-- For example, fetching a specific Twitter user, using Twitter’s RESTful API, will require a URL that identify that user and the HTTP method GET.
+- An identifier for the resource you are interested in. This is the URL for the resource, also known as the <u>endpoint</u>. In fact, URL stands for Uniform Resource Locator.
+- The operation you want the server to perform on that resource, in the form of an HTTP method, or verb. <u>The common HTTP methods are GET, POST, PUT, and DELETE.</u>
+
+For example, fetching a specific Twitter user, using Twitter’s RESTful API, will require a URL that identify that user and the HTTP method GET.
 
 In order for an API to be RESTful, it has to adhere to 6 constraints:
 - Uniform interface

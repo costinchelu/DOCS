@@ -14,13 +14,13 @@
 
 ## Keywords: static, final, transient, strictfp, volatile
 
-**static** =  share the same variable or method of a given class. (variables, methods, blocks and nested classes). This (variable or method) is loaded in memory once at the time of class loading, so it saves memory, since it's not defined per object in Java. Static methods creates behaviour at the class level.  
+**static** =  share the <u>same variable or method of a given class</u>. (variables, methods, blocks and nested classes). This (variable or method) is loaded in memory once at the time of class loading, so it saves memory, since it's not defined per object in Java. Static methods creates behaviour at the class level.  
 Instance member variables cannot be accessed by a static method.
 But an instance method can call both instance variables and static variables.  
-**final** = define an entity that can only be assigned once. Once a final variable has been assigned, it always contains the same value. For classes, a final class will not be inherited (also methods).  
-**transient** = used for a <u>member variable</u> not to be serialized. Instead of being serialized, the variable will be reduced to its default value (not considered part of the persistent state of the object).  
-**strictfp** =  used for restricting floating-point calculations and ensuring same result on every platform while performing operations in the floating-point variable.  
-**volatile** = another way (like synchronized, atomic wrapper) of making class thread safe (method or class instance can be used by multiple threads at the same time without any problem). Volatile variables have the visibility features of synchronized but not the atomicity features. The values of volatile variable will never be cached and all writes and reads will be done to and from the main memory. 
+**final** = define an entity that <u>can only be assigned once</u>. Once a final variable has been assigned, it always contains the same value. For classes, a final class will not be inherited (also methods).  
+**transient** = used for a <u>member variable not to be serialized</u>. Instead of being serialized, the variable will be reduced to its default value (not considered part of the persistent state of the object).  
+**strictfp** =  used for <u>restricting floating-point calculations</u> and ensuring same result on every platform while performing operations in the floating-point variable.  
+**volatile** = another way (like synchronized, atomic wrapper) of making class thread safe (method or class instance can be used by multiple threads at the same time without any problem). Volatile variables have the visibility features of synchronized but not the atomicity features. The <u>values of volatile variable will never be cached</u> and all writes and reads will be done to and from the main memory. 
 
 
 ## Difference between final, finally and finalize
@@ -169,6 +169,22 @@ The String class is an immutable class whereas StringBuffer and StringBuilder cl
 - BigDecimal will not round automatically, or loses precision (except 2/3)
 - BigDecimal take up more memory
 - BigDecimal are stored in heap (float in stack)
+ 
+```java
+BigDecimal bd1 = new BigDecimal("250.0005021");
+BigDecimal bd2 = new BigDecimal("120.002");
+
+BigDecimal sum = bd1.add(bd2);
+BigDecimal sum2 = bd1.add(new BigDecimal("5.00"));
+BigDecimal subtraction = bd1.subtract(bd2);
+BigDecimal product = bd1.multiply(bd2);
+BigDecimal division = bd1.divide(bd2);
+System.out.println("Sum is: " + sum.toString());
+
+float d = bd1.floatValue();
+System.out.printf("Formated in two decimal d = %.2f", d);
+```
+
 
 
 ## Nested classes
