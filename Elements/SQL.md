@@ -295,7 +295,7 @@ Example of a composite unique-key (at table level):
 
 Both can be referenced by foreign key of another table.
 
-## What are transactions?. ACID?
+## What are transactions? ACID?
 
 A transaction is a unit of work that is performed against a database. Transactions are units or sequences of work accomplished in a logical order, whether in a manual fashion by a user or automatically by some sort of a database program.
 
