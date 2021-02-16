@@ -124,6 +124,12 @@
 - PHP/Python/Perl = limbaj de script
 - există și versiune care înlocuiește server-ul de Linux cu unul pe Windows (WAMP)
 
+# LDAP
+
+### LIGHTWEIGHT DIRECTORY ACCESS PROTOCOL
+
+- protocol folosit pentru interogarea și modificarea serviciilor de directoare prin intermediul TCP/IP
+
 # MEAN
 
 ### MONGO DB, EXPRESS.JS, ANGULAR.JS, NODE.JS
@@ -133,6 +139,12 @@
 - Express.js = web application framework
 - Angular.js = front-end framework
 - Node.js = javascript runtime
+ 
+# MIME
+
+### MULTIPURPOSE INTERNET MAIL-EXTENSION
+
+- standard de Internet care extinde formatul de e-mail pentru suportul pentru text în alte seturi de caractere decât ASCII sau atașamente non-text: audio, video, imagini, programe etc.
 
 # MVC
 

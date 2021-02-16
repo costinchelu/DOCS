@@ -284,6 +284,14 @@ interface Collection<E>  {
 Collection<String> coll = new LinkedList<String>();
 ```
 
+## What is JSON Data Binding
+
+- The process of converting JSON data to a POJO and from object, back to JSON.
+- Also known:
+    - Mapping;
+    - Serialization/Deserialization
+    - Marshalling/Unmarshalling
+
 
 ## JDK, JRE, JVM
 

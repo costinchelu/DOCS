@@ -80,7 +80,6 @@ public static void main(String[] args) {
 ```
 
 
-
 ## Out of the box bean scopes (singleton, prototype, request, session, global session)
 
 Scopes defined for Spring Beans:
@@ -124,9 +123,23 @@ As per Spring documentation:
 - We should use setter-based injections for optional dependencies
 - Field-based injection is a costlier approach and we should avoid using it (Spring uses reflection for field based injection)
 
+## How to run a Spring Boot App from the command line
 
+- First alternative:
+    - from the Linux console, get to the Spring Boot App root directory
+    - run with: `./mvnw spring-boot:run`
+    - exit with `Ctrl + C`
+- Second version:
+    - from the Linux console, get to the Spring Boot App root directory
+    - package the app (jar) with `./mvnw package`
+    - the jar will be packaged into target folder
+    - `cd target`
+    - run the app with `java -jar spring-0.0.1-SNAPSHOT.jar` or whatever the name of the application (can look up with `ls`)
 
+## What are inner beans
 
-## What are inner beans.
+In Spring framework, whenever a bean is used for only one particular property, it’s advise to declare it as an inner bean. And the inner bean is supported both in setter injection ‘property‘ and constructor injection ‘constructor-arg‘. Like Inner classes are the classes which are defined inside the scope of another class. Similarly inner beans are the beans which are defined in the scope of another bean.
 
 ## What modules does Spring Framework have
+
+![Spring modules](images/spring_modules.jpg)
