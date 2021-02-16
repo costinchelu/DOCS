@@ -1,0 +1,16 @@
+## Webapp Architecture Basics
+
+![](images/Webapp_architecture/snap0158.png)
+![](images/Webapp_architecture/snap0159.png)
+![](images/Webapp_architecture/snap0161.png)
+![](images/Webapp_architecture/snap0162.png)
+![](images/Webapp_architecture/snap0163.png)
+![](images/Webapp_architecture/snap0164.png)
+![](images/Webapp_architecture/snap0166.png)
+![](images/Webapp_architecture/snap0168.png)
+![](images/Webapp_architecture/snap0169.png)
+![](images/Webapp_architecture/snap0170.png)
+![](images/Webapp_architecture/snap0171.png)
+![](images/Webapp_architecture/snap0172.png)
+![](images/Webapp_architecture/snap0173.png)
+![](images/Webapp_architecture/snap0174.png)

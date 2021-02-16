@@ -124,6 +124,12 @@
 - PHP/Python/Perl = limbaj de script
 - există și versiune care înlocuiește server-ul de Linux cu unul pe Windows (WAMP)
 
+# LDAP
+
+### LIGHTWEIGHT DIRECTORY ACCESS PROTOCOL
+
+- protocol folosit pentru interogarea și modificarea serviciilor de directoare prin intermediul TCP/IP
+
 # MEAN
 
 ### MONGO DB, EXPRESS.JS, ANGULAR.JS, NODE.JS
