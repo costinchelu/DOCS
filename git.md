@@ -1,5 +1,7 @@
 # VERSION CONTROL (GIT)
 
+![Revision Control Project](images/git/Revision_controlled_project_visualization.png)
+
 ### 3 STAGES OF A FILE:
 **I ) COMMITED** – data is stored in local database  
 **II ) MODIFIED** – when file contents is changed  
@@ -80,6 +82,8 @@ Links from github can be pasted with shift+insert (in the linux command line)
 
 ### COMMITS
 
+> *A 'commit' or 'revision' (SVN) is a modification that is applied to the repository. To commit (check in, ci or, more rarely, install, submit or record) is to write or merge the changes made in the working copy back to the repository. A commit contains metadata, typically the author information and a commit message that describes the change.*
+
 `git commit -m` “here description or/and name of the commit is written” = commits and posts a message for the commit  
 `git commit -a` = automatically commits changes to files tracked by git (`git commit -am "<message>"` = auto commit modified files and save a message for the commit)  
 `git commit --amend` = overwrites last commit (only works with last commit) with changes made now (add new changes to the previous commit)  
@@ -91,22 +95,30 @@ Links from github can be pasted with shift+insert (in the linux command line)
 `git diff --staged` = shows the differences even if files are staged  
 `git diff HEAD` = can show differences even if a file was staged and we've made some modifications on it after staging
 
+> *HEAD sometimes called tip, refers to the most recent commit, either to the trunk or to a branch. The trunk and each branch have their own head, though HEAD is sometimes loosely used to refer to the trunk.*
+
 ### REMOTES
 
-`git remote add origin` *pasted_link_of_the_github_project* = adds the origin github repository to our local repository by creating a link that allows us to push or pull changes between the two  
+> *The working copy is the local copy of files from a repository, at a specific time or revision. All work done to the files in a repository is initially done on a working copy, hence the name. Conceptually, it is a sandbox.*
+
+`git remote add origin` *pasted_link_of_the_github_project* = adds the origin remote (github) repository to our local repository by creating a link that allows us to push or pull changes between the two  
 
 (local <<--link-->> github)
 
 `git remote show origin` = shows info about connection of the local repository with a remote repository on another computer
-`git push -u origin master` = to push files of the project to github server on master branch (first time pushing on remote)   
+`git push -u origin master` = to push files of the project to github server on master branch (first time pushing on remote) (*now master has changed to main*)  
 `git remote set-url origin https://github.com/USERNAME/REPOSITORY.git` = modify address of current remote repository (origin)
 
-On creating a repo, github creates a branch named master. So when the local master branch is up to date with the origin/master branch on github server.
+> *Copy revisions from one repository into another. Pull is initiated by the receiving repository, while push is initiated by the source. Fetch is sometimes used as a synonym for pull, or to mean a pull followed by an update.*
 
 `git pull` = fetch from and integrate with another repository or a local branch    
 `git push` = update remote refs along with associated objects  
 `git push -f origin master` = force push (even when we have merge conflicts)  
-`git fetch` = getting info about new content from the remote repo (no merging into the master branch on the working machine). If we want to download the changes from the origin/master we can `git merge origin/master`  
+  
+`git fetch` = getting info about new content from the remote repo (no merging into the master branch on the working machine).  
+If we want to download the changes from the origin/master we can `git merge origin/master`  
+
+> ***Pull request** = A developer asking others to merge their "pushed" changes.*
 
 ### STATUS
 
@@ -139,7 +151,9 @@ For all, we can scroll screen up & down with **J & K** keys. <u>**To exit press 
 ### BRANCHES
 
 `git branch` = displays current branch and other derived branches  
-`git branch` *new_branch_name* = when we only want to create the new branch (without checking out to it)  
+`git branch` *new_branch_name* = when we only want to create the new branch (without checking out to it) 
+
+> <i>To check out (or co) is to create a local working copy from the repository. A user may specify a specific revision or obtain the latest. The term 'checkout' can also be used as a noun to describe the working copy. When a file has been checked out from a shared file server, it cannot be edited by other users. Think of it like a hotel, when you check out, you no longer have access to its amenities.<i>
    
 `git checkout -b` *new_branch_name* = creates a new branch from current branch and moves the „head” pointer to the new branch (checkout). That means - new commits will get on the new branch   
 `git checkout` *branch_name* = changes current branch  
@@ -179,6 +193,8 @@ For that we will get to the page of the original repo and copy the URL to the pr
 If we are contributors on a github project we can push and pull like we own that repo. If we want to push something but some other contributor has done some modifications on the repo, we will get an error saying we need to update (pull) the local copy. We can do that with `git pull --rebase` and now we will have the latest version from Github. After that, we can push and GitHub will merge our modification. This "conflict" exists because all of collaborators are working on master branch. Ideally every collaborator will work on separate branches. In this case we would like to create and push our own branch to origin with `git push -u origin <name_of_our_branch>`.
 
 ### TAGS
+
+> *A tag or label refers to an important snapshot in time, consistent across many files. These files at that point may all be tagged with a user-friendly, meaningful name or revision number.*
 
 `git tag` = view all the tags in the project history.  
 There are two types of tags: lightweight, adnotated.  
