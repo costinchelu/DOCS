@@ -86,7 +86,7 @@ Links from github can be pasted with shift+insert (in the linux command line)
 > *A 'commit' or 'revision' (SVN) is a modification that is applied to the repository. To commit (check in, ci or, more rarely, install, submit or record) is to write or merge the changes made in the working copy back to the repository. A commit contains metadata, typically the author information and a commit message that describes the change.*
 
 `git commit -m` “here description or/and name of the commit is written” = commits and posts a message for the commit  
-`git commit -a` = automatically commits changes to files tracked by git (`git commit -am "<message>"` = auto commit modified files and save a message for the commit)  
+`git commit -a` = automatically commits changes to files tracked by git (`git commit -a -m "<message>"` = auto commit modified files and save a message for the commit)  
 `git commit --amend` = overwrites last commit (only works with last commit) with changes made now (add new changes to the previous commit)  
 `git commit --amend --no-edit` = overwrites last commit with changes made now without editing previous commit message  
 
@@ -164,8 +164,10 @@ For all, we can scroll screen up & down with **J & K** keys. <u>**To exit press 
 `git branch -d` *branch_name* = deletes branch specified by branch name  
 `git push <remote_name> -d <branch_name>` = delete a remote branch    
   
-`git merge` *branch_name* = merging a branch into present branch  
-`git merge --no-ff` *branch_name* = merging in "no fast forward" mode (recursive merge)  
+`git merge` *<branch_name>* = merging a branch into present branch  
+`git merge --no-ff` *<branch_name>* = merging in "no fast forward" mode (recursive merge)
+
+![--no-ff](images/git/recursive-merge.png)
 
 ### REBASE
 
@@ -232,3 +234,14 @@ A good use case is when we need to recover something from *reflog*.
 `git reset HEAD~2` = all changes made in the last 2 commits are de-commited and are now in the working directory unstaged and/or untracked  
 
 `git reset --hard` = gets them all deleted (!!!only when we don't need changes - permanently deletes all changes made in those commits)  (or `git reset --hard 0d1d7fc32` if we want to destroy every commit until and including 0d1d7fc32)   
+
+### LINKS
+
+![git-flow](images/git/git-model.png)
+
+[A successful git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+
+-----------------
+Other guide:
+
+[https://guides.github.com/introduction/flow/](https://guides.github.com/introduction/flow/)
