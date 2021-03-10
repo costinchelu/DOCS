@@ -40,8 +40,21 @@ preparedStatement.executeUpdate();
 - Inherits all methods from Statement. It inherits the addBatch method, and additionally allows a set of parameter values to be added to match the set of batched SQL commands via addBatch method.
 - A special type of PreparedStatement (the subclass CallableStatement) allows stored procedures to be executed - supporting high performance, encapsulation, procedural programming and SQL, DB administration/maintenance/tweaking of logic, and use of proprietary DB logic & features
 
+## Difference between JDBC and Hibernate
 
+| S.NO | JDBC                                     | Hibernate                                |
+|------|------------------------------------------|------------------------------------------|
+| 1.   | In JDBC, one needs to write code to map the object model’s data representation to the schema of the relational model. | Hibernate maps the object model’s data to the schema of the database itself with the help of annotations. |
+| 2.   | JDBC enables developers to create queries and update data to a relational database using the Structured Query Language (SQL). | Hibernate uses HQL (Hibernate Query Language) which is similar to SQL but understands object-oriented concepts like inheritance, association etc. |
+| 3.   | JDBC code needs to be written in a try catch block as it throws checked exception(SQLexception). | Whereas Hibernate manages the exceptions itself by marking them as unchecked. |
+| 4.   | JDBC is database dependent i.e. one needs to write different codes for different database. | Whereas Hibernate is database independent and same code can work for many databases with minor changes. |
+| 5.   | Creating associations between relations is quite hard in JDBC. | Associations like one-to-one, one-to-many, many-to-one, and many-to-many can be acquired easily with the help of annotations. |
 
+**JDBC** stands for Java Database Connectivity. It is a java application programming interface to provide a connection between the Java programming language and a wide range of databases (i.e), it establishes a link between the two so that a programmer could send data from Java code and store it in the database for future use.
+
+**Hibernate** is an open-source, non-invasive, light-weight java ORM(Object-relational mapping) framework to develop objects which are independent of the database software and make independent persistence logic in all JAVA, JEE. It simplifies the interaction of java applications with databases. Hibernate is an implementation of JPA(Java Persistence API).
+
+-----------------
 
 Benefits and risks of using Hibernate (hibernate)
 
@@ -70,3 +83,5 @@ What is the difference between sorted and ordered collection in hibernate? (hibe
 Difference between get() and load() (hibernate)
 
 find() vs getReference()  - (jpa)
+
+

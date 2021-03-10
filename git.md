@@ -79,22 +79,32 @@ Links from github can be pasted with shift+insert (in the linux command line)
 
 `git add <filename>` = add a file to staging area (ready for commit)  
 `git add.` = add files to the staging area (alternative: `git add -A`)   
-`git rm --cached <filename>` = remove a file from staging area  
+
+`git rm --cached -r <filename>` = recursively remove a file from the repository  
+
+`git restore --staged <file names>` = remove files from the staging area (unstage files)
 
 ### COMMITS
 
 > *A 'commit' or 'revision' (SVN) is a modification that is applied to the repository. To commit (check in, ci or, more rarely, install, submit or record) is to write or merge the changes made in the working copy back to the repository. A commit contains metadata, typically the author information and a commit message that describes the change.*
 
 `git commit -m` “here description or/and name of the commit is written” = commits and posts a message for the commit  
-`git commit -a` = automatically commits changes to files tracked by git (`git commit -am "<message>"` = auto commit modified files and save a message for the commit)  
+`git commit -a` = automatically commits changes to files tracked by git (`git commit -a -m "<message>"` = auto commit modified files and save a message for the commit (skip the staging area))  
 `git commit --amend` = overwrites last commit (only works with last commit) with changes made now (add new changes to the previous commit)  
 `git commit --amend --no-edit` = overwrites last commit with changes made now without editing previous commit message  
+
+### GETTING BACK
+
+`git checkout <short hash for the searched commit>` = to view state for a certain older commit. (detached HEAD state). To get back to the current tip of the branch: (`git checkout master`) (that is, if we are working on the master branch)  
+`git restore --source=HEAD~1 <path/filename>` = restore a file from a previous commit. The file will be recovered from the repo and put in the working directory  
+`git bisect start` = for finding bad commits (that introduced bugs). `git bisect good <short hash of an older commit>`
 
 ### DIFF
 
 `git diff` = shows differences between the last commit and now  
 `git diff --staged` = shows the differences even if files are staged  
-`git diff HEAD` = can show differences even if a file was staged and we've made some modifications on it after staging
+`git diff HEAD` = can show differences even if a file was staged and we've made some modifications on it after staging  
+`git diff HEAD~2 HEAD` = can show differences between the 2 commits ago and current commit  
 
 > *HEAD sometimes called tip, refers to the most recent commit, either to the trunk or to a branch. The trunk and each branch have their own head, though HEAD is sometimes loosely used to refer to the trunk.*
 
@@ -144,10 +154,20 @@ For all, we can scroll screen up & down with **J & K** keys. <u>**To exit press 
 `git log -p` = shows differences made in each commit  
 `git log --oneline -–decorate` = shows a short presentation of each commit  
 `git log --since “2 months”` = shows only commits made in the last 2 months. We can use also “*from*” & “*until*”.  
+`git log --after="2021-01-15"` = shows only commits made after the specified date  
+`git log --grep="Interface"` = shows only commits that contains "Interface" in the  message  
+`git log --oneline 3` = shows last 3 commits  
+`git log --oneline -- someName.txt` = displays only commits that modified the file with the specified name  
+`git log --oneline --patch <filename>` = see the history of the file  
+`git shortlog` = short log (just commit messages)  
 `git log --graph` = shows commits in a graphical format (useful for branching)  
 `git diff` = shows differences in files that are not yet staged  
 `git log --graph --decorate --oneline --all ^master^!` = shows branches from master  
 `git show-branch --all` = lists all branches
+HEAD position:
+  - **HEAD** is current position
+  - **HEAD~1** is previous position in the branch
+  - **HEAD~2** 2 positions ago. And so on...
 
 ### BRANCHES
 
@@ -160,12 +180,15 @@ For all, we can scroll screen up & down with **J & K** keys. <u>**To exit press 
 `git checkout` *branch_name* = changes current branch  
 `git checkout -f` *branch_name* = changes current branch (forced mode)  
 `git checkout -b old-state 0d1d7fc32` = in this case we are creating a new branch called old-state, checkout on that branch and we are getting the state of the project from the commit with the hash 0d1d7fc32  
-  
+`git checkout <short hash> <file name>` = restoring a deleted file from a previous version
+
 `git branch -d` *branch_name* = deletes branch specified by branch name  
 `git push <remote_name> -d <branch_name>` = delete a remote branch    
   
-`git merge` *branch_name* = merging a branch into present branch  
-`git merge --no-ff` *branch_name* = merging in "no fast forward" mode (recursive merge)  
+`git merge` *<branch_name>* = merging a branch into present branch  
+`git merge --no-ff` *<branch_name>* = merging in "no fast forward" mode (recursive merge)
+
+![--no-ff](images/git/recursive-merge.png)
 
 ### REBASE
 
@@ -199,9 +222,10 @@ If we are contributors on a github project we can push and pull like we own that
 
 `git tag` = view all the tags in the project history.  
 There are two types of tags: lightweight, adnotated.  
-`git tag` *“tag_name”* = for creating a light tag  
-`git tag -a` *“tag_name”* `-m` *“message”* = for creating an adnotated tag with a message  
-`git show` *“tag_name”* = for viewing detailed info about the commit assigned with that tag  
+`git tag v1.0` = for creating a light tag (example: tag v1.0)  
+`git tag -a <tag_name> -m <message>` = for creating an adnotated tag with a message  
+`git show <tag_name>` = for viewing detailed info about the commit assigned with that tag  
+`git tag -d <tag_name>` = delete a tag
 
 ### CHERRY-PICK
 
@@ -232,3 +256,14 @@ A good use case is when we need to recover something from *reflog*.
 `git reset HEAD~2` = all changes made in the last 2 commits are de-commited and are now in the working directory unstaged and/or untracked  
 
 `git reset --hard` = gets them all deleted (!!!only when we don't need changes - permanently deletes all changes made in those commits)  (or `git reset --hard 0d1d7fc32` if we want to destroy every commit until and including 0d1d7fc32)   
+
+### LINKS
+
+![git-flow](images/git/git-model.png)
+
+[A successful git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+
+-----------------
+Other guide:
+
+[https://guides.github.com/introduction/flow/](https://guides.github.com/introduction/flow/)
