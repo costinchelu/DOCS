@@ -89,7 +89,9 @@ Links from github can be pasted with shift+insert (in the linux command line)
 > *A 'commit' or 'revision' (SVN) is a modification that is applied to the repository. To commit (check in, ci or, more rarely, install, submit or record) is to write or merge the changes made in the working copy back to the repository. A commit contains metadata, typically the author information and a commit message that describes the change.*
 
 `git commit -m` “here description or/and name of the commit is written” = commits and posts a message for the commit  
+
 `git commit -a` = automatically commits changes to files tracked by git (`git commit -a -m "<message>"` = auto commit modified files and save a message for the commit (skip the staging area))  
+
 `git commit --amend` = overwrites last commit (only works with last commit) with changes made now (add new changes to the previous commit)  
 `git commit --amend --no-edit` = overwrites last commit with changes made now without editing previous commit message  
 
