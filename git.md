@@ -65,14 +65,14 @@ Options for creating the repository:
 - `add.gitignore` = git will ignore all files with listed extensions that are in the repository (usually large files, or project configurations files). Extensions will be written in the .gitignore file.  
 - Adding a licence (licence files).  
 - Initialise repository with a readme.me file  
-`echo` *github_repo_name* >> `README.md` = to add the README to the project  
+`echo <github_repo_name> >> README.md` = to add the README to the project  
 
 ### INITIALISING, ADDING, COMMITING (ON LOCAL)
 
 `git init` = a new repository is initialised in the current directory  
-`git init` *SomeFolderName* = a new repository is initialised in the SomeFolderName folder (which will be created)  
+`git init <SomeFolderName>` = a new repository is initialised in the SomeFolderName folder (which will be created)  
 
-`git clone` *link* = clone an online repository on a local drive.   
+`git clone <link>` = clone an online repository on a local drive.   
 Links from github can be pasted with shift+insert (in the linux command line) 
 
 ### ADDING (TO STAGE)
@@ -92,7 +92,7 @@ Links from github can be pasted with shift+insert (in the linux command line)
 
 `git commit -a` = automatically commits changes to files tracked by git (`git commit -a -m "<message>"` = auto commit modified files and save a message for the commit (skip the staging area))  
 
-`git commit --amend` = overwrites last commit (only works with last commit) with changes made now (add new changes to the previous commit)  
+`git commit --amend` = overwrites last commit (only works with last commit) with changes made now (add new changes to the previous commit) (also for modifying last commit's message)  
 `git commit --amend --no-edit` = overwrites last commit with changes made now without editing previous commit message  
 
 ### GETTING BACK
@@ -159,13 +159,13 @@ For all, we can scroll screen up & down with **J & K** keys. <u>**To exit press 
 `git log --after="2021-01-15"` = shows only commits made after the specified date  
 `git log --grep="Interface"` = shows only commits that contains "Interface" in the  message  
 `git log --oneline 3` = shows last 3 commits  
-`git log --oneline -- someName.txt` = displays only commits that modified the file with the specified name  
+`git log --oneline -- <filename>` = displays only commits that modified the file with the specified name  
 `git log --oneline --patch <filename>` = see the history of the file  
 `git shortlog` = short log (just commit messages)  
 `git log --graph` = shows commits in a graphical format (useful for branching)  
 `git diff` = shows differences in files that are not yet staged  
 `git log --graph --decorate --oneline --all ^master^!` = shows branches from master  
-`git show-branch --all` = lists all branches
+`git show-branch --all` = lists all branches (including the ones that are ahead of the HEAD pointer)  
 HEAD position:
   - **HEAD** is current position
   - **HEAD~1** is previous position in the branch
@@ -178,17 +178,24 @@ HEAD position:
 
 > <i>To check out (or co) is to create a local working copy from the repository. A user may specify a specific revision or obtain the latest. The term 'checkout' can also be used as a noun to describe the working copy. When a file has been checked out from a shared file server, it cannot be edited by other users. Think of it like a hotel, when you check out, you no longer have access to its amenities.<i>
    
-`git checkout -b` *new_branch_name* = creates a new branch from current branch and moves the „head” pointer to the new branch (checkout). That means - new commits will get on the new branch   
-`git checkout` *branch_name* = changes current branch  
-`git checkout -f` *branch_name* = changes current branch (forced mode)  
+`git checkout -b <branch_name>` = creates a new branch from current branch and moves the „head” pointer to the new branch (checkout). That means - new commits will get on the new branch (also: `git switch -C <branch_name>`)  
+`git checkout <branch_name>` = changes current branch (also: `git switch <branch_name>`)  
+`git checkout -f <branch_name>` = changes current branch (forced mode)  
 `git checkout -b old-state 0d1d7fc32` = in this case we are creating a new branch called old-state, checkout on that branch and we are getting the state of the project from the commit with the hash 0d1d7fc32  
-`git checkout <short hash> <file name>` = restoring a deleted file from a previous version
+`git checkout <short hash> <file_name>` = restoring a deleted file from a previous version
 
-`git branch -d` *branch_name* = deletes branch specified by branch name  
-`git push <remote_name> -d <branch_name>` = delete a remote branch    
-  
-`git merge` *<branch_name>* = merging a branch into present branch  
-`git merge --no-ff` *<branch_name>* = merging in "no fast forward" mode (recursive merge)
+`git branch -d <branch_name>` = deletes branch specified by branch name  
+`git branch -m <old_name> <new_name>`  = rename a branch  
+`git push <remote_name> -d <branch_name>` = delete a remote branch  
+`git branch --merged` = to view all merged branches in the current branch. These ca be safely deleted
+
+### MERGES
+
+`git merge <branch_name>` = merging a branch into present branch (including fast-forward if it's the case)  
+`git merge --no-ff <branch_name>` = merging in "no fast forward" mode (recursive merge)  
+`git merge --abort` = abort the merge  
+`git reset --hard HEAD~1` = remove the last merge  
+`git merge --squash <branch_name>` = squash merging (compress several small commits in the secondary branch into one merge in the master branch)
 
 ![--no-ff](images/git/recursive-merge.png)
 
@@ -200,6 +207,7 @@ This is useful when changes in the secondary branch are very important and we wa
 `git rebase -i HEAD~3` = git rebase interactive (it opens up a table of options for the last 3 commits)  
 
 ### Rebase vs merge
+
 ![Rebase vs Merge](images/git/rebase_vs_merge.png)
 - When you do rebase a feature branch onto master, you move the base of the feature branch to master branch’s ending point.
 - Merging takes the contents of the feature branch and integrates it with the master branch. As a result, only the master branch is changed. The feature branch history remains same.
@@ -231,18 +239,19 @@ There are two types of tags: lightweight, adnotated.
 
 ### CHERRY-PICK
 
-`git cherry-pick` *some_commit_SHA* = enables arbitrary Git commits to be picked by reference and appended to the current working HEAD. Cherry picking can cause duplicate commits and many scenarios where cherry picking would work, traditional merges are preferred instead  
+`git cherry-pick <some_commit_SHA>` = enables arbitrary Git commits to be picked by reference and appended to the current working HEAD. Cherry picking can cause duplicate commits and many scenarios where cherry picking would work, traditional merges are preferred instead  
 
 A good use case is when we need to recover something from *reflog*.
-`git reflog` = will show us a list of commits, some of them possibly destroyed by a hard reset. We can copy a hash from that list and the: `git cherry-pick` *that_SHA_we've_copied_from_reflog*  
+`git reflog` = will show us a list of commits, some of them possibly destroyed by a hard reset. We can copy a hash from that list and the: `git cherry-pick <that_SHA_we've_copied_from_reflog>`  
 
 ### STASH
 
 `git stash` = will save working directory and index state to a stash area to be kept until we will decide where to put changes (in other words, everything we have in the staging area, will be put away into a stack and removed from staging area)   
+`git stash push -am "Working on something, when I had to switch to anothe branch"` = stash with a message (we are including all files that we are working on, and that includes unstaged files)  
 `git stash apply` = will "insert" work stashed in the current branch (the stash will keep it's last element)  
 `git stash pop` = will extract changes from stash to working area (and remove it from the stack (clear the stash, if we have only one element))  
 `git push --tags` = will push the tags we have in the project to our default remote (GitHub)  
-`git stash list` or `git stash show` = will display the contents of the stash  
+`git stash list` or `git stash show` = will display the contents of the stash (and we can use `git stash show <number>` to see a sepecific stash, in case we have more than one)  
 `git stash drop` = removes last entry  
 `git stash clear` = clears the stash  
 
