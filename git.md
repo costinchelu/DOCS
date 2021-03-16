@@ -98,7 +98,8 @@ Links from github can be pasted with shift+insert (in the linux command line)
 ### GETTING BACK
 
 `git checkout <short hash for the searched commit>` = to view state for a certain older commit. (detached HEAD state). To get back to the current tip of the branch: (`git checkout master`) (that is, if we are working on the master branch)  
-`git restore --source=HEAD~1 <path/filename>` = restore a file from a previous commit. The file will be recovered from the repo and put in the working directory  
+`git restore --source=HEAD~1 --<path/filename>` = restore a file from a previous commit. The file will be recovered from the repo and put in the working directory  
+`git restore --source=<other_branch> --<path/filename>` = restore a file from another branch. The file will be recovered from the repo and put in the working directory  
 `git bisect start` = for finding bad commits (that introduced bugs). `git bisect good <short hash of an older commit>`
 
 ### DIFF
