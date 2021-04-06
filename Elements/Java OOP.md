@@ -120,3 +120,13 @@ Marker is an *empty interface* (no field or methods).
 Examples: Serializable, Clonnable and Remote interface. All these interfaces are empty interfaces.  
 
 Marker interfaces can be replaced by annotations (they convey metadata about the class to its consumers without creating a sepparate type for it).
+
+## What is a functional interface
+
+Interface that have only one abstract method:  
+`Runnable -> run()`  
+`Callable -> call()`  
+`Comparable -> compareTo()`  
+`Comparator -> compare()`
+
+*The functional interface can still have multiple default or static methods (beside the abstract method)*
