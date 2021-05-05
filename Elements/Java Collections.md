@@ -1,3 +1,4 @@
+
 ## General collection interfaces (Collection, Set, Map, List, Queue, SortedSet, SortedMap)
 
 The <u>Collection interface</u> defines the common operations for lists, vectors, stacks, queues, priority queues, and sets. Methods provided are at instance level.  
@@ -21,6 +22,7 @@ The Java Collections Framework:
 
 No, Map is not part of Collection interface. It's a part of Collections Framework.
 
+![Collection interface](images/collections_2.png)
 
 ## ArrayList vs LinkedList
 
