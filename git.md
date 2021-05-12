@@ -235,6 +235,54 @@ HEAD position:
 
 ![--no-ff](images/git/recursive-merge.png)
 
+### MERGE CONFLICTS
+
+Just perform the merge and abort it if there are conflicts.
+
+However, if you want to ensure you don't mess up your current branch, or you're just not ready to merge regardless of the existence of conflicts, simply create a new sub-branch off of it and merge that:
+
+**Strategy 1**: The safe way – merge off a temporary branch:
+
+```
+git checkout mybranch
+git checkout -b mynew-temporary-branch
+git merge some-other-branch
+```
+
+That way you can simply throw away the temporary branch if you just want to see what the conflicts are. You don't need to bother "aborting" the merge, and you can go back to your work -- simply checkout 'mybranch' again and you won't have any merged code or merge conflicts in your branch.
+
+This is basically a dry-run.
+
+**Strategy 2**: When you definitely want to merge, but only if there aren't conflicts
+
+```
+git checkout mybranch
+git merge some-other-branch
+```
+
+If git reports conflicts (and ONLY IF THERE ARE conflicts) you can then do:
+
+```
+git merge --abort
+```
+
+If the merge is successful, you cannot abort it (only reset).
+
+**Strategy 3**: Pass in the --no-commit flag, but to avoid a fast-forward commit, also pass in --no-ff
+
+```
+git merge --no-commit --no-ff $BRANCH
+```
+
+To examine the staged changes:
+```
+git diff --cached
+```
+And you can undo the merge, even if it is a fast-forward merge:
+```
+git merge --abort
+```
+
 ### REBASE
 
 `git rebase` = gets all content and commits from a secondary branch, on top of the master commits.   
@@ -248,6 +296,8 @@ This is useful when changes in the secondary branch are very important and we wa
 - When you do rebase a feature branch onto master, you move the base of the feature branch to master branch’s ending point.
 - Merging takes the contents of the feature branch and integrates it with the master branch. As a result, only the master branch is changed. The feature branch history remains same.
 - Merging adds a new commit to your history.
+
+https://hackernoon.com/git-merge-vs-rebase-whats-the-diff-76413c117333
 
 ### FORKing
 
