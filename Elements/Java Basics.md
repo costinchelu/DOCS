@@ -188,20 +188,31 @@ System.out.printf("Formated in two decimal d = %.2f", d);
 
 ## Nested classes
 
-- Nested class = a class within another class
-- nested class does not exists independently of outer class
+- Nested class = a class within another class (nested class does not exists independently of outer class)
 - NC has access to all members of enclosing class (however the reverse is not true)
 - NC is also a member of its enclosing class
-- there are two type of nested classes:
-    - static nested class: are declared static. In this case, without an outer class object existing, there may be a static nested class object. i.e., an object of a static nested class is not strongly associated with the outer class object.   `OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();`  
+- there are **two type of nested classes**:
+    - ***static nested class*** 
+      - Are declared static. 
+      - In this case, without an outer class object existing, there may be a static nested class object. i.e., an object of a static nested class is not strongly associated with the outer class object.
+      - `OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();`  
     
-    - inner class:  non-static nested class. To instantiate an inner class, you must first instantiate the outer class. Then, create the inner object within the outer object:  
-    `OuterClass.InnerClass innerObject = outerObject.new InnerClass();`
-      - member inner class
-      - local inner class (access only constant local members)
-      - anonymous inner class
+    - ***regular inner class (non-static nested class)***. 
+      - To instantiate an inner class, you must first instantiate the outer class. Then, create the inner object within the outer object.
+      - `OuterClass.InnerClass innerObject = outerObject.new InnerClass();`
+      - Subtypes:
+        - **member inner class**
+        - **local inner class** (access only constant local members)
+        - **anonymous inner class**
 
 - There can also be nested interfaces that are by default static
+
+| Normal/Regular inner class               | Static nested class                      |
+|------------------------------------------|------------------------------------------|
+| Without an outer class object existing, there cannot be an inner class object. That is, the inner class object is always associated with the outer class object. | Without an outer class object existing, there may be a static nested class object. That is, static nested class object is not associated with the outer class object. |
+| Inside normal/regular inner class, static members can’t be declared. | Inside static nested class, static members can be declared. |
+| As main() method can’t be declared, regular inner class can’t be invoked directly from the command prompt. | As main() method can be declared, the static nested class can be invoked directly from the command prompt. |
+| Both static and non static members of outer class can be accessed directly. | Only a static member of outer class can be accessed directly. |
 
 
 ## Regular vs. static initialization blocks
