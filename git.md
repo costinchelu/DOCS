@@ -354,6 +354,13 @@ A good use case is when we need to recover something from *reflog*.
 
 `git reset --hard` = gets them all deleted (!!!only when we don't need changes - permanently deletes all changes made in those commits)  (or `git reset --hard 0d1d7fc32` if we want to destroy every commit until and including 0d1d7fc32)   
 
+### Git flow for updating feature branch with changes from develop branch
+
+`git checkout dev`  
+`git pull origin dev`  
+`git checkout myfeaturebranch`  
+`git merge dev`  
+
 ### LINKS
 
 ![git-flow](images/git/git-model.png)
